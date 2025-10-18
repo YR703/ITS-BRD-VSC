@@ -1,0 +1,8 @@
+C:/Users/youse/OneDrive/Desktop/GS/ITS-BRD-VSC/Programs/Stack/tmp/CMakeFiles/database.dir
+C:/Users/youse/OneDrive/Desktop/GS/ITS-BRD-VSC/Programs/Stack/tmp/CMakeFiles/Stack.Debug+ITSboard.dir
+C:/Users/youse/OneDrive/Desktop/GS/ITS-BRD-VSC/Programs/Stack/tmp/CMakeFiles/Stack.Debug+ITSboard-build.dir
+C:/Users/youse/OneDrive/Desktop/GS/ITS-BRD-VSC/Programs/Stack/tmp/CMakeFiles/Stack.Debug+ITSboard-configure.dir
+C:/Users/youse/OneDrive/Desktop/GS/ITS-BRD-VSC/Programs/Stack/tmp/CMakeFiles/Stack.Debug+ITSboard-executes.dir
+C:/Users/youse/OneDrive/Desktop/GS/ITS-BRD-VSC/Programs/Stack/tmp/CMakeFiles/Stack.Debug+ITSboard-database.dir
+C:/Users/youse/OneDrive/Desktop/GS/ITS-BRD-VSC/Programs/Stack/tmp/CMakeFiles/edit_cache.dir
+C:/Users/youse/OneDrive/Desktop/GS/ITS-BRD-VSC/Programs/Stack/tmp/CMakeFiles/rebuild_cache.dir

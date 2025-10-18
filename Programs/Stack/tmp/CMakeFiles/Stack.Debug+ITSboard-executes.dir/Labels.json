@@ -1,0 +1,40 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "C:/Users/youse/OneDrive/Desktop/GS/ITS-BRD-VSC/Programs/Stack/tmp/CMakeFiles/Stack.Debug+ITSboard-executes"
+		},
+		{
+			"file" : "C:/Users/youse/OneDrive/Desktop/GS/ITS-BRD-VSC/Programs/Stack/tmp/CMakeFiles/Stack.Debug+ITSboard-executes.rule"
+		},
+		{
+			"file" : "C:/Users/youse/OneDrive/Desktop/GS/ITS-BRD-VSC/Programs/Stack/tmp/Stack.Debug+ITSboard/src/Stack.Debug+ITSboard-stamp/Stack.Debug+ITSboard-executes.rule"
+		},
+		{
+			"file" : "C:/Users/youse/OneDrive/Desktop/GS/ITS-BRD-VSC/Programs/Stack/tmp/Stack.Debug+ITSboard/src/Stack.Debug+ITSboard-stamp/Stack.Debug+ITSboard-build.rule"
+		},
+		{
+			"file" : "C:/Users/youse/OneDrive/Desktop/GS/ITS-BRD-VSC/Programs/Stack/tmp/Stack.Debug+ITSboard/src/Stack.Debug+ITSboard-stamp/Stack.Debug+ITSboard-configure.rule"
+		},
+		{
+			"file" : "C:/Users/youse/OneDrive/Desktop/GS/ITS-BRD-VSC/Programs/Stack/tmp/Stack.Debug+ITSboard/src/Stack.Debug+ITSboard-stamp/Stack.Debug+ITSboard-patch.rule"
+		},
+		{
+			"file" : "C:/Users/youse/OneDrive/Desktop/GS/ITS-BRD-VSC/Programs/Stack/tmp/Stack.Debug+ITSboard/src/Stack.Debug+ITSboard-stamp/Stack.Debug+ITSboard-update.rule"
+		},
+		{
+			"file" : "C:/Users/youse/OneDrive/Desktop/GS/ITS-BRD-VSC/Programs/Stack/tmp/Stack.Debug+ITSboard/src/Stack.Debug+ITSboard-stamp/Stack.Debug+ITSboard-download.rule"
+		},
+		{
+			"file" : "C:/Users/youse/OneDrive/Desktop/GS/ITS-BRD-VSC/Programs/Stack/tmp/Stack.Debug+ITSboard/src/Stack.Debug+ITSboard-stamp/Stack.Debug+ITSboard-mkdir.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"Stack.Debug+ITSboard"
+		],
+		"name" : "Stack.Debug+ITSboard-executes"
+	}
+}
