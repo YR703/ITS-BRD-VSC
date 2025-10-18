@@ -30,3 +30,4 @@ typedef struct{   //!< This structure stores a token
 
 #endif /* TOKEN_H */
 // EOF
+        //Test
