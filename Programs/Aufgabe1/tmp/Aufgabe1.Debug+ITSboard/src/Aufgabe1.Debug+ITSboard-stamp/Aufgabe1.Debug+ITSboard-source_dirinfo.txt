@@ -4,6 +4,6 @@
 
 method=source_dir
 command=
-source_dir=C:/Users/youse/OneDrive/Desktop/GS/ITS-BRD-VSC/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard
+source_dir=C:/Users/youse/OneDrive/Dokumente/GitHub/ITS-BRD-VSC/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard
 work_dir=
 

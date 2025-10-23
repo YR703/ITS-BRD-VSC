@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/youse/OneDrive/Desktop/GS/ITS-BRD-VSC/Programs/Aufgabe1/tmp
+# Install script for directory: C:/Users/youse/OneDrive/Dokumente/GitHub/ITS-BRD-VSC/Programs/Aufgabe1/tmp
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/youse/OneDrive/Desktop/GS/ITS-BRD-VSC/Programs/Aufgabe1/tmp/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "C:/Users/youse/OneDrive/Dokumente/GitHub/ITS-BRD-VSC/Programs/Aufgabe1/tmp/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
