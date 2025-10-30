@@ -1,8 +1,8 @@
-C:/Users/infwtx851/Downloads/ITS-BRD-VSC-testing/Programs/Aufgabe1/tmp/CMakeFiles/database.dir
-C:/Users/infwtx851/Downloads/ITS-BRD-VSC-testing/Programs/Aufgabe1/tmp/CMakeFiles/Aufgabe1.Debug+ITSboard.dir
-C:/Users/infwtx851/Downloads/ITS-BRD-VSC-testing/Programs/Aufgabe1/tmp/CMakeFiles/Aufgabe1.Debug+ITSboard-build.dir
-C:/Users/infwtx851/Downloads/ITS-BRD-VSC-testing/Programs/Aufgabe1/tmp/CMakeFiles/Aufgabe1.Debug+ITSboard-configure.dir
-C:/Users/infwtx851/Downloads/ITS-BRD-VSC-testing/Programs/Aufgabe1/tmp/CMakeFiles/Aufgabe1.Debug+ITSboard-executes.dir
-C:/Users/infwtx851/Downloads/ITS-BRD-VSC-testing/Programs/Aufgabe1/tmp/CMakeFiles/Aufgabe1.Debug+ITSboard-database.dir
-C:/Users/infwtx851/Downloads/ITS-BRD-VSC-testing/Programs/Aufgabe1/tmp/CMakeFiles/edit_cache.dir
-C:/Users/infwtx851/Downloads/ITS-BRD-VSC-testing/Programs/Aufgabe1/tmp/CMakeFiles/rebuild_cache.dir
+C:/Users/youse/Desktop/GS/GSPraktikum/GSA1/Programs/Aufgabe1/tmp/CMakeFiles/database.dir
+C:/Users/youse/Desktop/GS/GSPraktikum/GSA1/Programs/Aufgabe1/tmp/CMakeFiles/Aufgabe1.Debug+ITSboard.dir
+C:/Users/youse/Desktop/GS/GSPraktikum/GSA1/Programs/Aufgabe1/tmp/CMakeFiles/Aufgabe1.Debug+ITSboard-build.dir
+C:/Users/youse/Desktop/GS/GSPraktikum/GSA1/Programs/Aufgabe1/tmp/CMakeFiles/Aufgabe1.Debug+ITSboard-configure.dir
+C:/Users/youse/Desktop/GS/GSPraktikum/GSA1/Programs/Aufgabe1/tmp/CMakeFiles/Aufgabe1.Debug+ITSboard-executes.dir
+C:/Users/youse/Desktop/GS/GSPraktikum/GSA1/Programs/Aufgabe1/tmp/CMakeFiles/Aufgabe1.Debug+ITSboard-database.dir
+C:/Users/youse/Desktop/GS/GSPraktikum/GSA1/Programs/Aufgabe1/tmp/CMakeFiles/edit_cache.dir
+C:/Users/youse/Desktop/GS/GSPraktikum/GSA1/Programs/Aufgabe1/tmp/CMakeFiles/rebuild_cache.dir
