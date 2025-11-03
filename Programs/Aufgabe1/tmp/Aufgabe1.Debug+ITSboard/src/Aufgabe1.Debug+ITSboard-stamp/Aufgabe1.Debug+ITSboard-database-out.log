@@ -1,5 +1,1 @@
-[0/1] Re-running CMake...
--- Configuring done (2.2s)
--- Generating done (0.0s)
--- Build files have been written to: D:/ITS-BRD-VSC/Programs/Aufgabe1/tmp/1
-[1/2] C:\WINDOWS\system32\cmd.exe /C "cd /D D:\ITS-BRD-VSC\Programs\Aufgabe1\tmp\1 && "C:\Users\Abdullah Ahmed\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\bin\cmake.exe" -E make_directory D:/ITS-BRD-VSC/Programs/Aufgabe1/out/Aufgabe1/ITSboard/Debug && "C:\Users\Abdullah Ahmed\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\bin\cmake.exe" -E copy_if_different D:/ITS-BRD-VSC/Programs/Aufgabe1/tmp/1/compile_commands.json D:/ITS-BRD-VSC/Programs/Aufgabe1/out/Aufgabe1/ITSboard/Debug"
+[1/1] C:\WINDOWS\system32\cmd.exe /C "cd /D D:\ITS-BRD-VSC\Programs\Aufgabe1\tmp\1 && "C:\Users\Abdullah Ahmed\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\bin\cmake.exe" -E make_directory D:/ITS-BRD-VSC/Programs/Aufgabe1/out/Aufgabe1/ITSboard/Debug && "C:\Users\Abdullah Ahmed\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.28.4\bin\cmake.exe" -E copy_if_different D:/ITS-BRD-VSC/Programs/Aufgabe1/tmp/1/compile_commands.json D:/ITS-BRD-VSC/Programs/Aufgabe1/out/Aufgabe1/ITSboard/Debug"
