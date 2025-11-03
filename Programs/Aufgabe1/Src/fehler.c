@@ -25,7 +25,7 @@ void errorHandler(int err) { //rote schrift aktiveren-->Fehler
             printStdout("Fehler: Unbekannter Fehler!\n");
             break;
 
-        default:
+        default:  //Falls kein Fehler→ normalmodus wiederherstellen
             setNormalMode();
             break;
     }

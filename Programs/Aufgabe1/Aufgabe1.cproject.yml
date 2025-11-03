@@ -192,6 +192,8 @@ project:
         - file: Src/scanner.c
         - file: Src/display.c
         - file: Src/stack.c
+        - file: Src/fehler.c
+        - file: Src/calc.c
 
 
   components:

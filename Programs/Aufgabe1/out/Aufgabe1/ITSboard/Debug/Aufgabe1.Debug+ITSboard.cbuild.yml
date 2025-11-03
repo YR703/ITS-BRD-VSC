@@ -341,6 +341,10 @@ build:
           category: sourceC
         - file: ../../../../Src/stack.c
           category: sourceC
+        - file: ../../../../Src/fehler.c
+          category: sourceC
+        - file: ../../../../Src/calc.c
+          category: sourceC
   constructed-files:
     - file: ../../../../RTE/_Debug_ITSboard/RTE_Components.h
       category: header
