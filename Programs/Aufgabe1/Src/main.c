@@ -7,29 +7,24 @@
 #include "init.h"
 #include "stm32f4xx_hal.h"
 
-
-
+/**
+ * @brief Hauptprogramm: Initialisiert Hardware und startet den Taschenrechner.
+ */
 int main(void) {
-    initITSboard();    // Initialisiert Hardware 
-    initDisplay();     // Initialisiert Displaybereich
-    clearStack();      // Stack auf Anfangszustand setzen
+    initITSboard();
+    initDisplay();
+    clearStack();
 
     T_token token;
     int err;
 
-    while (1) {  // Nächstes Token vom Touchpad lesen
-        
+    while (1) {
         token = nextToken();
-
-        //Berechnung durchführen
         err = calc(token);
 
-        //Falls Fehlercode zurückkommt→Fehler anzeigen
-        if (err != ERR_OK) {
+        if (err != ERR_OK)
             errorHandler(err);
-        }
 
-        //Kleine Pause, damit Display stabil bleibt
         HAL_Delay(100);
     }
 }

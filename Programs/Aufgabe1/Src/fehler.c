@@ -1,31 +1,29 @@
 #include "fehler.h"
 #include "display.h"
 
-void errorHandler(int err) { //rote schrift aktiveren-->Fehler
+/**
+ * @brief Zeigt Fehlermeldungen auf dem Display an.
+ */
+void errorHandler(int err) {
     setErrMode();
 
     switch (err) {
         case ERR_STACK_EMPTY:
             printStdout("Fehler: Stack ist leer.\n");
             break;
-
         case ERR_STACK_FULL:
             printStdout("Fehler: Stack ist voll.\n");
             break;
-
         case ERR_DIV_ZERO:
             printStdout("Fehler: Division durch 0!\n");
             break;
-
         case ERR_OVERFLOW:
-            printStdout("Fehler: Bereichsüberschreitung!\n");
+            printStdout("Fehler: Bereichsueberschreitung!\n");
             break;
-
         case ERR_UNKNOWN:
-            printStdout("Fehler: Unbekannter Fehler!\n");
+            printStdout("Fehler: Ungueltige Eingabe!\n");
             break;
-
-        default:  //Falls kein Fehler→ normalmodus wiederherstellen
+        default:
             setNormalMode();
             break;
     }
