@@ -7,10 +7,8 @@
 #include "init.h"
 #include "stm32f4xx_hal.h"
 
-/**
- * @brief Hauptprogramm: Initialisiert Hardware und startet den Taschenrechner.
- */
-int main(void) {
+
+main(void) {
     initITSboard();
     initDisplay();
     clearStack();
