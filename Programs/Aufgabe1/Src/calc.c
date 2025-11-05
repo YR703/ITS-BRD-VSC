@@ -5,9 +5,7 @@
 #include "token.h"
 #include <limits.h>
 
-/**
- * @brief Führt Rechen- und Stackoperationen aus.
- */
+
 int calc(T_token token) {
     int a, b, result;
 
@@ -60,19 +58,19 @@ int calc(T_token token) {
             clearStdout();
             return ERR_OK;
 
-        //  PRINT TOP ('p') — propagate error correctly
+        //  
         case PRT:
-            return printTop();     // ✅ changed
+            return printTop();     
 
-        //  PRINT ALL ('P') — propagate error correctly
+        //  
         case PRT_ALL:
-            return printAll();     // ✅ changed
+            return printAll();     // 
 
-        // DUPLICATE TOP ('d')
+        // 
         case DOUBLE:
             return duplicateTop();
 
-        //  SWAP TOP TWO ('r')
+        //  
         case SWAP:
             return swapTop();
 
