@@ -13,7 +13,7 @@ int calc(T_token token) {
         case NUMBER:
             return push(token.val);
 
-        case PLUS:
+        case PLUS: //Führt Addition durch: b + a
             if (pop(&a) == ERR_OK && pop(&b) == ERR_OK) {
                 if (b > INT_MAX - a) return ERR_OVERFLOW;
                 result = b + a;
@@ -21,7 +21,7 @@ int calc(T_token token) {
             }
             return ERR_STACK_EMPTY;
 
-        case MINUS:
+        case MINUS: //Subtraktion durch: b - a
             if (pop(&a) == ERR_OK && pop(&b) == ERR_OK) {
                 if ((a > 0 && b < INT_MIN + a) || (a < 0 && b > INT_MAX + a))
                     return ERR_OVERFLOW;
@@ -30,7 +30,7 @@ int calc(T_token token) {
             }
             return ERR_STACK_EMPTY;
 
-        case MULT:
+        case MULT: //Multiplikation durch: b * a
             if (pop(&a) == ERR_OK && pop(&b) == ERR_OK) {
                 if (a != 0 && (b > INT_MAX / a || b < INT_MIN / a))
                     return ERR_OVERFLOW;
@@ -43,7 +43,7 @@ int calc(T_token token) {
             }
             return ERR_STACK_EMPTY;
 
-        case DIV:
+        case DIV: //Division durch: b / a
             if (pop(&a) == ERR_OK && pop(&b) == ERR_OK) {
                 if (a == 0)
                     return ERR_DIV_ZERO;
@@ -52,32 +52,32 @@ int calc(T_token token) {
             }
             return ERR_STACK_EMPTY;
 
-        //  CLEAR ('C')
+        //  CLEAR ('C') //Löscht den Stack und die Anzeige
         case CLEAR:
             clearStack();
             clearStdout();
             return ERR_OK;
 
-        //  
-        case PRT:
+         
+        case PRT: //Gibt oberstes Element aus
             return printTop();     
 
-        //  
+          
         case PRT_ALL:
-            return printAll();     // 
+            return printAll();     // Gibt gesamten Stackinhalt aus
 
-        // 
-        case DOUBLE:
+        
+        case DOUBLE: //Verdoppelt oberstes Element
             return duplicateTop();
 
         //  
-        case SWAP:
+        case SWAP:  //Vertauscht die obersten zwei Werte
             return swapTop();
 
-        case OVERFLOW:
+        case OVERFLOW: //Überlauf beim Eingeben einer Zahl
             return ERR_OVERFLOW;
 
-        case UNEXPECTED:
+        case UNEXPECTED: //Unerwartete oder ungültige Eingabe(e)
             return ERR_UNKNOWN;
 
         default:
