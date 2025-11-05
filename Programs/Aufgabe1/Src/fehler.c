@@ -1,9 +1,7 @@
 #include "fehler.h"
 #include "display.h"
 
-/**
- * @brief Zeigt Fehlermeldungen auf dem Display an.
- */
+
 void errorHandler(int err) {
     setErrMode();
 
