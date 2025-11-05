@@ -2,7 +2,7 @@
 #include "display.h"
 
 
-void errorHandler(int err) {
+void errorHandler(int err) {  // Fehler-Modus (rote Farbe)
     setErrMode();
 
     switch (err) {
