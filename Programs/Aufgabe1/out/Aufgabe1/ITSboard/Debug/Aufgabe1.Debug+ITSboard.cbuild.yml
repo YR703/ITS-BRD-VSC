@@ -4,56 +4,6 @@ build:
   project: ../../../../Aufgabe1.cproject.yml
   context: Aufgabe1.Debug+ITSboard
   compiler: AC6
-  board: STMicroelectronics::NUCLEO-F429ZI:Rev.B
-  board-pack: Keil::STM32NUCLEO_BSP@1.8.1
-  board-books:
-    - name: https://www.st.com/en/evaluation-tools/nucleo-f429zi.html#overview
-      title: NUCLEO-F429ZI board
-      category: overview
-    - name: ${CMSIS_PACK_ROOT}/Keil/STM32NUCLEO_BSP/1.8.1/Documents/nucleo-f429zi.pdf
-      title: Overview
-      category: overview
-    - name: ${CMSIS_PACK_ROOT}/Keil/STM32NUCLEO_BSP/1.8.1/Documents/DM00105928.pdf
-      title: Getting started
-      category: setup
-    - name: ${CMSIS_PACK_ROOT}/Keil/STM32NUCLEO_BSP/1.8.1/Documents/DM00244518.pdf
-      title: User Manual
-      category: manual
-    - name: ${CMSIS_PACK_ROOT}/Keil/STM32NUCLEO_BSP/1.8.1/Documents/MB1137.pdf
-      title: Schematics
-      category: schematic
-    - name: ${CMSIS_PACK_ROOT}/Keil/STM32NUCLEO_BSP/1.8.1/Boards/ST/NUCLEO-F429ZI/Documentation/README.md
-      title: Guide
-      category: other
-  device: STMicroelectronics::STM32F429ZITx
-  device-pack: Keil::STM32F4xx_DFP@2.17.1
-  device-books:
-    - name: ${CMSIS_PACK_ROOT}/Keil/STM32F4xx_DFP/2.17.1/Documentation/DM00031020.pdf
-      title: STM32F40x/41x/42x/43x Reference Manual
-    - name: ${CMSIS_PACK_ROOT}/Keil/STM32F4xx_DFP/2.17.1/Documentation/DM00071990.pdf
-      title: STM32F427/429 Data Sheet
-    - name: ${CMSIS_PACK_ROOT}/Keil/STM32F4xx_DFP/2.17.1/Documentation/DM00068628.pdf
-      title: STM32F42x/43x Errata Sheet
-    - name: ${CMSIS_PACK_ROOT}/Keil/STM32F4xx_DFP/2.17.1/Documentation/dui0553a_cortex_m4_dgug.pdf
-      title: Cortex-M4 Generic User Guide
-    - name: ${CMSIS_PACK_ROOT}/Keil/STM32F4xx_DFP/2.17.1/Documentation/DM00105879.pdf
-      title: STM32F4xx HAL Drivers
-    - name: ${CMSIS_PACK_ROOT}/Keil/STM32F4xx_DFP/2.17.1/Documentation/DM00104712.pdf
-      title: STM32CubeMX User Manual
-  dbgconf:
-    - file: ../../../../.cmsis/Aufgabe1+ITSboard.dbgconf
-      version: 0.0.0
-  processor:
-    endian: little
-    fpu: sp
-    core: Cortex-M4
-  packs:
-    - pack: ARM::CMSIS@6.1.0
-      path: ${CMSIS_PACK_ROOT}/ARM/CMSIS/6.1.0
-    - pack: Keil::STM32F4xx_DFP@2.17.1
-      path: ${CMSIS_PACK_ROOT}/Keil/STM32F4xx_DFP/2.17.1
-    - pack: Keil::STM32NUCLEO_BSP@1.8.1
-      path: ${CMSIS_PACK_ROOT}/Keil/STM32NUCLEO_BSP/1.8.1
   optimize: none
   debug: on
   misc:
@@ -126,12 +76,8 @@ build:
     - USE_HAL_DRIVER
     - USE_STM32F4XX_NUCLEO_144
     - __MICROLIB
-    - STM32F429xx
-    - _RTE_
   define-asm:
     - __MICROLIB
-    - STM32F429xx
-    - _RTE_
   add-path:
     - ../../../../Inc
     - ../../../../../../stm32cubef4/Drivers/CMSIS/Device/ST/STM32F4xx/Include
@@ -142,13 +88,6 @@ build:
     - ../../../../../../DisplayWaveshare/Inc
     - ../../../../../../ITS_BRD_LIB/Inc
     - ../../../../../../ITS_BRD_LIB/Utilities/AddFonts
-    - ../../../../RTE/_Debug_ITSboard
-    - ${CMSIS_PACK_ROOT}/ARM/CMSIS/6.1.0/CMSIS/Core/Include
-    - ${CMSIS_PACK_ROOT}/Keil/STM32F4xx_DFP/2.17.1/Drivers/CMSIS/Device/ST/STM32F4xx/Include
-  add-path-asm:
-    - ../../../../RTE/_Debug_ITSboard
-    - ${CMSIS_PACK_ROOT}/ARM/CMSIS/6.1.0/CMSIS/Core/Include
-    - ${CMSIS_PACK_ROOT}/Keil/STM32F4xx_DFP/2.17.1/Drivers/CMSIS/Device/ST/STM32F4xx/Include
   output-dirs:
     intdir: ../../../../tmp
     outdir: .
@@ -156,6 +95,7 @@ build:
   output:
     - type: elf
       file: Aufgabe1.axf
+<<<<<<< Updated upstream
   components:
     - component: ARM::CMSIS:CORE@6.1.0
       condition: ARMv6_7_8-M Device
@@ -360,3 +300,5 @@ build:
         - pack: ARM::CMSIS@6.1.0
       components:
         - component: ARM::CMSIS:CORE@6.1.0
+=======
+>>>>>>> Stashed changes

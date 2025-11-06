@@ -2,7 +2,6 @@ build-idx:
   generated-by: csolution version 2.11.0
   cdefault: ${CMSIS_COMPILER_ROOT}/cdefault.yml
   csolution: Aufgabe1.csolution.yml
-  cbuild-run: out/Aufgabe1+ITSboard.cbuild-run.yml
   tmpdir: tmp
   cprojects:
     - cproject: Aufgabe1.cproject.yml
@@ -10,11 +9,20 @@ build-idx:
     - cbuild: out/Aufgabe1/ITSboard/Debug/Aufgabe1.Debug+ITSboard.cbuild.yml
       project: Aufgabe1
       configuration: .Debug+ITSboard
+      errors: true
       messages:
+        errors:
+          - "required pack: ARM::CMSIS-DSP@1.16.2 not installed, version fixed in *.cbuild-pack.yml file"
+          - "required pack: ARM::CMSIS-NN@6.0.0 not installed, version fixed in *.cbuild-pack.yml file"
+          - "required pack: Keil::STM32F4xx_DFP@2.17.1 not installed, version fixed in *.cbuild-pack.yml file"
+          - "required pack: Keil::STM32NUCLEO_BSP@1.8.1 not installed, version fixed in *.cbuild-pack.yml file"
+          - board 'STMicroelectronics::NUCLEO-F429ZI:Rev.B' was not found
+          - processing context 'Aufgabe1.Debug+ITSboard' failed
         info:
           - Aufgabe1.cbuild-pack.yml - file is already up-to-date
-          - Aufgabe1+ITSboard.cbuild-run.yml - file is already up-to-date
           - Aufgabe1.Debug+ITSboard.cbuild.yml - file is already up-to-date
-      packs-unused:
-        - pack: ARM::CMSIS-DSP@1.16.2
+      packs-missing:
+        - pack: Keil::STM32NUCLEO_BSP@1.8.1
+        - pack: Keil::STM32F4xx_DFP@2.17.1
         - pack: ARM::CMSIS-NN@6.0.0
+        - pack: ARM::CMSIS-DSP@1.16.2

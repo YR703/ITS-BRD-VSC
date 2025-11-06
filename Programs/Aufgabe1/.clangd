@@ -1,5 +1,9 @@
 CompileFlags:
+<<<<<<< Updated upstream
   CompilationDatabase: d:\ITS-BRD-VSC\Programs\Aufgabe1\out\Aufgabe1\ITSboard\Debug
+=======
+  CompilationDatabase: c:\ITS-BRD-VSC2\Programs\Aufgabe1\out\Aufgabe1\ITSboard\Debug
+>>>>>>> Stashed changes
   Add:
     - '-D_ILP32=1'
     - '-D_USE_STATIC_INLINE=1'
