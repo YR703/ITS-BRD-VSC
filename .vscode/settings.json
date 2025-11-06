@@ -57,7 +57,5 @@
   "C_Cpp_Runner.useLinkTimeOptimization": false,
   "C_Cpp_Runner.msvcSecureNoWarnings": false,
   "debug.hideSlowPreLaunchWarning": true,
-  "clangd.arguments": [
-    "--compile-commands-dir=d:\\ITS-BRD-VSC\\Programs\\Aufgabe1\\out\\Aufgabe1\\ITSboard\\Debug"
-  ]
+  "clangd.arguments": []
 }
