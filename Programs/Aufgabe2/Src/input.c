@@ -1,7 +1,7 @@
 #include <stdbool.h>
 
-#include "Gpio.h"
-#include "Input.h"
+#include "gpio.h"
+#include "input.h"
 #include "berechnung.h"
 #include "output.h"
 #include "timer.h"

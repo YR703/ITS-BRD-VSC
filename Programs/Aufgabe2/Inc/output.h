@@ -2,6 +2,9 @@
 #define _OUTPUT_H
 
 #include "terminal.h"
+#include "stm32f4xx_hal.h"
+#include "gpio.h"
+
 
 /**
  * @brief  Diese Funktion gibt die Phasen auf dem Led aus
@@ -36,7 +39,8 @@ void led_keine_aenderung();
 /**
  * @brief  Diese Funktion gibt den Winkel und die Winkelgeschwindigkeit auf dem Board aus
  */
-void print_lcdboard(int phasen, int sumphasen,int winkel, double geschw);
+void print_lcdboard(int phasen, int sumphasen, int winkel, double geschw);
+;
 
 /**
  * @brief  Diese Funktion löscht den Fehlerzustand

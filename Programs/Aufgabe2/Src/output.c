@@ -1,6 +1,8 @@
 #include <stdio.h>
+#include <stdbool.h>
+#include "stm32f4xx_hal.h"
 
-#include "Gpio.h"
+#include "gpio.h"
 #include "berechnung.h"
 #include "lcd.h"
 #include "output.h"
@@ -30,7 +32,8 @@ void print_led() {
  * @brief  Diese Funktion gibt den Winkel und die Winkelgeschwindigkeit auf dem
  * Board aus
  */
-void print_lcdboard(int phasen, int sumphasen, int winkel, double geschw) {
+void print_lcdboard(int phasen, int sumphasen, int winkel, double geschw);
+ {
   char pgeschw[20];
 
   double_to_string(geschw, pgeschw);

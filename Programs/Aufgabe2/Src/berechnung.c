@@ -97,6 +97,8 @@ double get_winkelgeschw() {
 	double geschw = 0;
   geschw = phasen * SCHLITZE / sek;
   return geschw;
+  if (sek == 0) sek = 1;
+
 }
 
 /**
