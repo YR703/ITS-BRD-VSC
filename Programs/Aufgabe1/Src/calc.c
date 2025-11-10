@@ -13,44 +13,65 @@ int calc(T_token token) {
         case NUMBER:
             return push(token.val);
 
-        case PLUS: //Führt Addition durch: b + a
+        case PLUS:
             if (pop(&a) == ERR_OK && pop(&b) == ERR_OK) {
-                if (b > INT_MAX - a) return ERR_OVERFLOW;
+                // Prüfung auf positiven Overflow
+                if (a > 0 && b > INT_MAX - a) {
+                    return ERR_OVERFLOW;
+                }
+                // Prüfung auf negativen Underflow (Ihr Fehlerfall)
+                if (a < 0 && b < INT_MIN - a) {
+                    return ERR_OVERFLOW; // Oder ERR_UNDERFLOW, falls Sie das definiert haben
+                }
+               
+                // Wenn keine Bereichsüberschreitung vorliegt, Addition durchführen
                 result = b + a;
                 return push(result);
             }
             return ERR_STACK_EMPTY;
 
-        case MINUS: //Subtraktion durch: b - a
-            if (pop(&a) == ERR_OK && pop(&b) == ERR_OK) {
-                if ((a > 0 && b < INT_MIN + a) || (a < 0 && b > INT_MAX + a))
-                    return ERR_OVERFLOW;
-                result = b - a;
-                return push(result);
+        case MULT:
+    if (pop(&a) == ERR_OK && pop(&b) == ERR_OK) {
+        // Sonderfall: Multiplikation mit 0 ist immer sicher
+        if (a == 0 || b == 0) {
+            return push(0);
+        }
+ 
+        // Overflow-Prüfung
+        if (a > 0) { // a ist positiv
+            if (b > 0) { // b ist positiv
+                if (a > INT_MAX / b) return ERR_OVERFLOW;
+            } else { // b ist negativ
+                if (b < INT_MIN / a) return ERR_OVERFLOW; // Underflow
             }
-            return ERR_STACK_EMPTY;
-
-        case MULT: //Multiplikation durch: b * a
-            if (pop(&a) == ERR_OK && pop(&b) == ERR_OK) {
-                if (a != 0 && (b > INT_MAX / a || b < INT_MIN / a))
-                    return ERR_OVERFLOW;
-
-                    if (a != 0 && (b > INT_MAX / a || b < INT_MIN / a))
-                        return ERR_OVERFLOW;
-                    
-                result = b * a;
-                return push(result);
+        } else { // a ist negativ
+            if (b > 0) { // b ist positiv
+                if (a < INT_MIN / b) return ERR_OVERFLOW; // Underflow
+            } else { // b ist negativ
+                if (a < INT_MAX / b) return ERR_OVERFLOW;
             }
-            return ERR_STACK_EMPTY;
+        }
+ 
+        result = b * a;
+        return push(result);
+    }
+    return ERR_STACK_EMPTY;
 
-        case DIV: //Division durch: b / a
-            if (pop(&a) == ERR_OK && pop(&b) == ERR_OK) {
-                if (a == 0)
-                    return ERR_DIV_ZERO;
-                result = b / a;
-                return push(result);
-            }
-            return ERR_STACK_EMPTY;
+        case DIV:
+    if (pop(&a) == ERR_OK && pop(&b) == ERR_OK) {
+        // 1. Prüfung: Division durch Null
+        if (a == 0) {
+            return ERR_DIV_ZERO;
+        }
+        // 2. Prüfung: Spezialfall INT_MIN / -1
+        if (b == INT_MIN && a == -1) {
+            return ERR_OVERFLOW;
+        }
+       
+        result = b / a;
+        return push(result);
+    }
+    return ERR_STACK_EMPTY;
 
         //  CLEAR ('C') //Löscht den Stack und die Anzeige
         case CLEAR:

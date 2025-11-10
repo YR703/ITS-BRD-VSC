@@ -81,41 +81,45 @@ int printAll(void) {  //ERR_OK bei Erfolg, ERR_STACK_EMPTY wenn Stack leer ist
 
 //value Die zu konvertierende Zahl
   //buffer Puffer, in den die Zeichenkette geschrieben wird
-static void intToStr(int value, char *buffer) {  
+static void intToStr(int value, char *buffer) {
     int i = 0;
     int isNeg = 0;
-
-    
-    if (value == INT_MIN) { //INT_MIN (-2147483648) kann nicht negiert werden
-        const char *minStr = "-2147483648";
-        for (i = 0; minStr[i] != '\0'; i++) {
-            buffer[i] = minStr[i];
+   
+    // Sonderfall INT_MIN direkt behandeln, da -INT_MIN einen Overflow verursacht.
+    // Dies ist die sicherste Methode.
+    if (value == INT_MIN) {
+        // strcpy ist in <string.h>, aber wir machen es manuell, um keine Libs zu brauchen
+        char min_str[] = "-2147483648"; // Annahme: 32-bit int
+        int k = 0;
+        while (min_str[k] != '\0') {
+            buffer[k] = min_str[k];
+            k++;
         }
-        buffer[i] = '\0';
+        buffer[k] = '\0';
         return;
     }
-
-    if (value < 0) {  //Prüfe auf negatives Vorzeichen
+ 
+    if (value < 0) {
         isNeg = 1;
-        value = -value;
+        value = -value; // Jetzt sicher, da INT_MIN schon behandelt wurde
     }
-
-    if (value == 0) { //fall wert 0
+ 
+    if (value == 0) {
         buffer[i++] = '0';
     }
-
-    while (value > 0) {  //Ziffern extrahieren (von hinten)
+ 
+    while (value > 0) {
         buffer[i++] = (value % 10) + '0';
         value /= 10;
     }
-
-    if (isNeg)  //Minuszeichen hinzufügen, falls negativ
+ 
+    if (isNeg)
         buffer[i++] = '-';
-
+ 
     buffer[i] = '\0';
-
-    
-    for (int j = 0; j < i / 2; j++) {   //String umdrehen, da Ziffern rückwärts gespeichert wurden
+ 
+    // String umdrehen
+    for (int j = 0; j < i / 2; j++) {
         char tmp = buffer[j];
         buffer[j] = buffer[i - j - 1];
         buffer[i - j - 1] = tmp;
