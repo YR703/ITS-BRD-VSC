@@ -1,5 +1,5 @@
 build:
-  generated-by: csolution version 2.11.0
+  generated-by: csolution version 2.12.0
   solution: ../../../../Aufgabe1.csolution.yml
   project: ../../../../Aufgabe1.cproject.yml
   context: Aufgabe1.Debug+ITSboard
@@ -340,6 +340,10 @@ build:
         - file: ../../../../Src/display.c
           category: sourceC
         - file: ../../../../Src/stack.c
+          category: sourceC
+        - file: ../../../../Src/fehler.c
+          category: sourceC
+        - file: ../../../../Src/calc.c
           category: sourceC
   constructed-files:
     - file: ../../../../RTE/_Debug_ITSboard/RTE_Components.h

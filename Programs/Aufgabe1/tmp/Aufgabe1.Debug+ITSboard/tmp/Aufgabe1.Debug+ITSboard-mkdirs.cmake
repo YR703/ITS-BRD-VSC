@@ -4,19 +4,19 @@
 cmake_minimum_required(VERSION 3.5)
 
 file(MAKE_DIRECTORY
-  "C:/TI_Labor/GSy/ITS-BRD-VSC/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard"
-  "C:/TI_Labor/GSy/ITS-BRD-VSC/Programs/Aufgabe1/tmp/1"
-  "C:/TI_Labor/GSy/ITS-BRD-VSC/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard"
-  "C:/TI_Labor/GSy/ITS-BRD-VSC/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/tmp"
-  "C:/TI_Labor/GSy/ITS-BRD-VSC/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp"
-  "C:/TI_Labor/GSy/ITS-BRD-VSC/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src"
-  "C:/TI_Labor/GSy/ITS-BRD-VSC/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp"
+  "C:/GSWS/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard"
+  "C:/GSWS/Programs/Aufgabe1/tmp/1"
+  "C:/GSWS/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard"
+  "C:/GSWS/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/tmp"
+  "C:/GSWS/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp"
+  "C:/GSWS/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src"
+  "C:/GSWS/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp"
 )
 
 set(configSubDirs )
 foreach(subDir IN LISTS configSubDirs)
-    file(MAKE_DIRECTORY "C:/TI_Labor/GSy/ITS-BRD-VSC/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/${subDir}")
+    file(MAKE_DIRECTORY "C:/GSWS/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/${subDir}")
 endforeach()
 if(cfgdir)
-  file(MAKE_DIRECTORY "C:/TI_Labor/GSy/ITS-BRD-VSC/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp${cfgdir}") # cfgdir has leading slash
+  file(MAKE_DIRECTORY "C:/GSWS/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp${cfgdir}") # cfgdir has leading slash
 endif()
