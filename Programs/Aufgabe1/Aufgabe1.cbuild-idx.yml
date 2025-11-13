@@ -13,7 +13,8 @@ build-idx:
       messages:
         info:
           - Aufgabe1.cbuild-pack.yml - file is already up-to-date
-          - Aufgabe1+ITSboard.cbuild-run.yml - file is already up-to-date
+          - "RTE Model reports:\nConstructed file C:/GSWS/ITS-BRD-VSC/Programs/Aufgabe1/RTE/_Debug_ITSboard/RTE_Components.h was recreated"
+          - Aufgabe1+ITSboard.cbuild-run.yml - file generated successfully
           - Aufgabe1.Debug+ITSboard.cbuild.yml - file is already up-to-date
       packs-unused:
         - pack: ARM::CMSIS-DSP@1.16.2

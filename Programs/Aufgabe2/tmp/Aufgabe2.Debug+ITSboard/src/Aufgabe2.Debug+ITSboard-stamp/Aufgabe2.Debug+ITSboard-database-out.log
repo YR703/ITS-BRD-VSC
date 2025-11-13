@@ -1,0 +1,5 @@
+[0/1] Re-running CMake...
+-- Configuring done (3.0s)
+-- Generating done (0.1s)
+-- Build files have been written to: C:/GSWS/ITS-BRD-VSC/Programs/Aufgabe2/tmp/1
+[1/2] C:\WINDOWS\system32\cmd.exe /C "cd /D C:\GSWS\ITS-BRD-VSC\Programs\Aufgabe2\tmp\1 && C:\Users\infwtx851\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.31.5\bin\cmake.exe -E make_directory C:/GSWS/ITS-BRD-VSC/Programs/Aufgabe2/out/Aufgabe2/ITSboard/Debug && C:\Users\infwtx851\.vcpkg\artifacts\2139c4c6\tools.kitware.cmake\3.31.5\bin\cmake.exe -E copy_if_different C:/GSWS/ITS-BRD-VSC/Programs/Aufgabe2/tmp/1/compile_commands.json C:/GSWS/ITS-BRD-VSC/Programs/Aufgabe2/out/Aufgabe2/ITSboard/Debug"

@@ -1,0 +1,13 @@
+# ninja log v6
+6	109	7847471317013763	Aufgabe2.Debug+ITSboard/src/Aufgabe2.Debug+ITSboard-stamp/Aufgabe2.Debug+ITSboard-mkdir	91ba071a57312102
+217	319	7847471319117861	C:/GSWS/ITS-BRD-VSC/Programs/Aufgabe2/tmp/Aufgabe2.Debug+ITSboard/src/Aufgabe2.Debug+ITSboard-stamp/Aufgabe2.Debug+ITSboard-update	55277dd04cf83569
+6	109	7847471317013763	C:/GSWS/ITS-BRD-VSC/Programs/Aufgabe2/tmp/Aufgabe2.Debug+ITSboard/src/Aufgabe2.Debug+ITSboard-stamp/Aufgabe2.Debug+ITSboard-mkdir	91ba071a57312102
+109	211	7847471318041821	Aufgabe2.Debug+ITSboard/src/Aufgabe2.Debug+ITSboard-stamp/Aufgabe2.Debug+ITSboard-download	96e605e71503d46
+109	211	7847471318041821	C:/GSWS/ITS-BRD-VSC/Programs/Aufgabe2/tmp/Aufgabe2.Debug+ITSboard/src/Aufgabe2.Debug+ITSboard-stamp/Aufgabe2.Debug+ITSboard-download	96e605e71503d46
+217	319	7847471319117861	Aufgabe2.Debug+ITSboard/src/Aufgabe2.Debug+ITSboard-stamp/Aufgabe2.Debug+ITSboard-update	55277dd04cf83569
+319	424	7847471320160863	Aufgabe2.Debug+ITSboard/src/Aufgabe2.Debug+ITSboard-stamp/Aufgabe2.Debug+ITSboard-patch	4564d48e4bdb55f1
+319	424	7847471320160863	C:/GSWS/ITS-BRD-VSC/Programs/Aufgabe2/tmp/Aufgabe2.Debug+ITSboard/src/Aufgabe2.Debug+ITSboard-stamp/Aufgabe2.Debug+ITSboard-patch	4564d48e4bdb55f1
+424	5918	7847471375109936	Aufgabe2.Debug+ITSboard/src/Aufgabe2.Debug+ITSboard-stamp/Aufgabe2.Debug+ITSboard-configure	9ce66a34592a3156
+424	5918	7847471375109936	C:/GSWS/ITS-BRD-VSC/Programs/Aufgabe2/tmp/Aufgabe2.Debug+ITSboard/src/Aufgabe2.Debug+ITSboard-stamp/Aufgabe2.Debug+ITSboard-configure	9ce66a34592a3156
+12	3553	7847471414268140	Aufgabe2.Debug+ITSboard/src/Aufgabe2.Debug+ITSboard-stamp/Aufgabe2.Debug+ITSboard-database	bf3fa9243fd59a74
+12	3553	7847471414268140	C:/GSWS/ITS-BRD-VSC/Programs/Aufgabe2/tmp/Aufgabe2.Debug+ITSboard/src/Aufgabe2.Debug+ITSboard-stamp/Aufgabe2.Debug+ITSboard-database	bf3fa9243fd59a74

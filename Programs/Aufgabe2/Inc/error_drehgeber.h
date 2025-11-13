@@ -2,12 +2,9 @@
 #define _ERROR_H
 
 #include "terminal.h"
+#include "C:\GSWS\ITS-BRD-VSC\ITS_BRD_LIB\Inc\terminal.h"
 
-#define PHASEUEBERSPRUNGEN - 1
-
-/**
- * @brief  Diese Funktion geht mit dem Fehler um und bleibt solange dort bis der Fehler zurückgesetzt wird
- */
+#define PHASEUEBERSPRUNGEN -1
 
 int error_number(int fehler);
 
