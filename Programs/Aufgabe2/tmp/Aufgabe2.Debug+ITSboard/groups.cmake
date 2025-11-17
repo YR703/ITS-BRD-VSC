@@ -208,7 +208,7 @@ add_library(Group_Program_User_Src OBJECT
   "${SOLUTION_ROOT}/Src/main.c"
   "${SOLUTION_ROOT}/Src/berechnung.c"
   "${SOLUTION_ROOT}/Src/error_drehgeber.c"
-  "${SOLUTION_ROOT}/Src/gpio.c"
+  "${SOLUTION_ROOT}/Src/Gpio.c"
   "${SOLUTION_ROOT}/Src/input.c"
   "${SOLUTION_ROOT}/Src/output.c"
 )

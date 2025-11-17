@@ -329,7 +329,7 @@ build:
           category: header
         - file: ../../../../Inc/error_drehgeber.h
           category: header
-        - file: ../../../../Inc/gpio.h
+        - file: ../../../../Inc/Gpio.h
           category: header
         - file: ../../../../Inc/input.h
           category: header
@@ -345,7 +345,7 @@ build:
           category: sourceC
         - file: ../../../../Src/error_drehgeber.c
           category: sourceC
-        - file: ../../../../Src/gpio.c
+        - file: ../../../../Src/Gpio.c
           category: sourceC
         - file: ../../../../Src/input.c
           category: sourceC

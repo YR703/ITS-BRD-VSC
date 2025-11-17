@@ -1,6 +1,5 @@
 #include <stdbool.h>
 #include "berechnung.h"
-#include "C:\GSWS\ITS-BRD-VSC\Programs\Aufgabe2\Inc\berechnung.h"
 #include "error_drehgeber.h"
 #include "input.h"
 #include "output.h"

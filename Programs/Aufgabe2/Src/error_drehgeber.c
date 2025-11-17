@@ -5,6 +5,15 @@
 #include "output.h"
 #include "terminal.h"
 
+#ifndef S6
+#define S6 GPIO_PIN_6
+#endif
+
+#ifndef D21
+#define D21 GPIO_PIN_1
+#endif
+
+
 int error_number(int fehler) {
   led_fehler();
   if (fehler == PHASEUEBERSPRUNGEN) {

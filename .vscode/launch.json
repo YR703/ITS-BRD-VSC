@@ -24,8 +24,8 @@
             "name": "STLink@pyOCD (launch)",
             "type": "gdbtarget",
             "request": "launch",
-            "cwd": "${workspaceFolder}/Programs\\Aufgabe1",
-            "program": "out\\Aufgabe1\\ITSboard\\Debug\\Aufgabe1.axf",
+            "cwd": "${workspaceFolder}/Programs/Aufgabe2",
+            "program": "out/Aufgabe2/ITSboard/Debug/Aufgabe2.axf",
             "gdb": "arm-none-eabi-gdb",
             "preLaunchTask": "CMSIS Load",
             "initCommands": [
@@ -34,6 +34,8 @@
             ],
             "customResetCommands": [
                 "monitor reset halt",
+                "maintenance flush register-cache",
+                "maintenance flush dcache",
                 "tbreak main",
                 "continue"
             ],
@@ -56,20 +58,23 @@
             "cmsis": {
                 "cbuildRunFile": "${command:cmsis-csolution.getCbuildRunFile}",
                 "updateConfiguration": "auto"
-            }
+            },
+            "auxiliaryGdb": true
         },
         {
             "name": "STLink@pyOCD (attach)",
             "type": "gdbtarget",
             "request": "attach",
-            "cwd": "${workspaceFolder}/Programs\\Aufgabe1",
-            "program": "out\\Aufgabe1\\ITSboard\\Debug\\Aufgabe1.axf",
+            "cwd": "${workspaceFolder}/Programs/Aufgabe2",
+            "program": "out/Aufgabe2/ITSboard/Debug/Aufgabe2.axf",
             "gdb": "arm-none-eabi-gdb",
             "initCommands": [
                 ""
             ],
             "customResetCommands": [
                 "monitor reset halt",
+                "maintenance flush register-cache",
+                "maintenance flush dcache",
                 "tbreak main",
                 "continue"
             ],
@@ -79,7 +84,8 @@
             "cmsis": {
                 "cbuildRunFile": "${command:cmsis-csolution.getCbuildRunFile}",
                 "updateConfiguration": "auto"
-            }
+            },
+            "auxiliaryGdb": true
         }
     ]
 }

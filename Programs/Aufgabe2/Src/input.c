@@ -6,6 +6,10 @@
 #include "timer.h"
 
 #define MAX 90000000
+#define BUTTON_PORT 0
+#define S0 0
+#define S1 1
+#define S7 7  
 
 unsigned int aft = 0;
 unsigned int bef = 0;

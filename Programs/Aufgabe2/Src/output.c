@@ -1,14 +1,31 @@
-#include <stdio.h>
-#include "gpio.h"
+#include "ITS_BRD_conf.h"    // board pin mapping (LED_PORTx, Dx)
+#include "gpio.h"            // your S0/S1 input
 #include "berechnung.h"
 #include "lcd.h"
 #include "output.h"
 #include "terminal.h"
-#include "C:\GSWS\ITS-BRD-VSC\Programs\Aufgabe2\Inc\gpio.h"
+#include "C:\Users\infwtx851\GSWS\stm32cubef4\Drivers\STM32F4xx_HAL_Driver\Inc\stm32f4xx_hal_gpio.h"
+
+#include <stdbool.h>
+#include <stdio.h>
+
+#ifndef LED_PORTD
+#define LED_PORTD GPIOD
+#define LED_PORTE GPIOE
+#define D21 GPIO_PIN_1
+#define D22 GPIO_PIN_2
+#define D23 GPIO_PIN_3
+#endif
+
+// Dummy implementation for simulation (no hardware)
+void setGPIOPin(GPIO_TypeDef* port, int pin, bool state) {
+    printf("[SIM] GPIO action: port=%p, pin=%d, state=%d\n", port, pin, state);
+}
+
 
 #define MAX 8
 #define MAXSTR 11
-
+ 
 int counter = 1;
 
 void print_led() {
