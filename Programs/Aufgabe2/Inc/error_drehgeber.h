@@ -1,11 +1,6 @@
-#ifndef _ERROR_H
-#define _ERROR_H
+#ifndef ERROR_DREHGEBER_H
+#define ERROR_DREHGEBER_H
 
-#include "terminal.h"
-
-
-#define PHASEUEBERSPRUNGEN -1
-
-int error_number(int fehler);
+void error_number(int fehler);
 
 #endif
