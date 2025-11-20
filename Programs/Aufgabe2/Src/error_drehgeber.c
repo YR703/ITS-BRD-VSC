@@ -1,17 +1,20 @@
-#include "stm32f4xx_hal.h"
 #include "error_drehgeber.h"
+#include "gpio.h"
 #include "output.h"
-#include "lcd.h"
+#include "berechnung.h"
 
-void error_number(int fehler) {
+int error_number(int fehler) {
     led_fehler();
-    lcdGotoXY(0, 140);
-    lcdPrintS("Fehler erkannt!");
+    if (fehler == PHASEUEBERSPRUNGEN) {
+        while (1) {
+            int s6 = readGPIOPin(BUTTON_PORT, S6);
+            if (s6) {
+                HAL_GPIO_WritePin(GPIOE, D21, GPIO_PIN_RESET);
 
-    while (1) {
-        HAL_Delay(500);
-        led_fehler_reset();
-        HAL_Delay(500);
-        led_fehler();
+                reset();
+                return 0;
+            }
+        }
     }
+    return 0;
 }

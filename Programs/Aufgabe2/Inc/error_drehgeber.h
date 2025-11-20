@@ -1,6 +1,8 @@
 #ifndef ERROR_DREHGEBER_H
 #define ERROR_DREHGEBER_H
 
-void error_number(int fehler);
+#define PHASEUEBERSPRUNGEN -1
+
+int error_number(int fehler);
 
 #endif

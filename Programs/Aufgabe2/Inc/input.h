@@ -1,8 +1,10 @@
 #ifndef INPUT_H
 #define INPUT_H
 
+#include <stdbool.h>
+
 int input_einlesen(void);
 int inputzeit(void);
-int resetpressed(void);
+bool resetpressed(void);
 
 #endif
