@@ -1,4 +1,8 @@
+<<<<<<< Updated upstream
 set(CMAKE_C_COMPILER "c:/Users/infwtx851/.vcpkg/artifacts/2139c4c6/compilers.arm.armclang/6.24.0/bin//armclang.exe")
+=======
+set(CMAKE_C_COMPILER "c:/Users/youse/.vcpkg/artifacts/2139c4c6/compilers.arm.armclang/6.24.0/bin//armclang.exe")
+>>>>>>> Stashed changes
 set(CMAKE_C_COMPILER_ARG1 "")
 set(CMAKE_C_COMPILER_ID "ARMClang")
 set(CMAKE_C_COMPILER_VERSION "6.24.0")
@@ -21,11 +25,19 @@ set(CMAKE_C_SIMULATE_VERSION "")
 
 
 
+<<<<<<< Updated upstream
 set(CMAKE_AR "c:/Users/infwtx851/.vcpkg/artifacts/2139c4c6/compilers.arm.armclang/6.24.0/bin/armar.exe")
+=======
+set(CMAKE_AR "c:/Users/youse/.vcpkg/artifacts/2139c4c6/compilers.arm.armclang/6.24.0/bin/armar.exe")
+>>>>>>> Stashed changes
 set(CMAKE_C_COMPILER_AR "")
-set(CMAKE_RANLIB "C:/dev/msys64/mingw64/bin/ranlib.exe")
+set(CMAKE_RANLIB ":")
 set(CMAKE_C_COMPILER_RANLIB "")
+<<<<<<< Updated upstream
 set(CMAKE_LINKER "c:/Users/infwtx851/.vcpkg/artifacts/2139c4c6/compilers.arm.armclang/6.24.0/bin/armlink.exe")
+=======
+set(CMAKE_LINKER "c:/Users/youse/.vcpkg/artifacts/2139c4c6/compilers.arm.armclang/6.24.0/bin/armlink.exe")
+>>>>>>> Stashed changes
 set(CMAKE_MT "")
 set(CMAKE_TAPI "CMAKE_TAPI-NOTFOUND")
 set(CMAKE_COMPILER_IS_GNUCC )
@@ -68,7 +80,11 @@ endif()
 
 
 
+<<<<<<< Updated upstream
 set(CMAKE_C_IMPLICIT_INCLUDE_DIRECTORIES "C:/Users/infwtx851/.vcpkg/artifacts/2139c4c6/compilers.arm.armclang/6.24.0/include")
+=======
+set(CMAKE_C_IMPLICIT_INCLUDE_DIRECTORIES "C:/Users/youse/.vcpkg/artifacts/2139c4c6/compilers.arm.armclang/6.24.0/include")
+>>>>>>> Stashed changes
 set(CMAKE_C_IMPLICIT_LINK_LIBRARIES "")
 set(CMAKE_C_IMPLICIT_LINK_DIRECTORIES "")
 set(CMAKE_C_IMPLICIT_LINK_FRAMEWORK_DIRECTORIES "")

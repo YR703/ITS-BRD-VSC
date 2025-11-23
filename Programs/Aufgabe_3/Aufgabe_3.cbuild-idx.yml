@@ -1,0 +1,20 @@
+build-idx:
+  generated-by: csolution version 2.12.0
+  cdefault: ${CMSIS_COMPILER_ROOT}/cdefault.yml
+  csolution: Aufgabe_3.csolution.yml
+  cbuild-run: out/Aufgabe_3+ITSboard.cbuild-run.yml
+  tmpdir: tmp
+  cprojects:
+    - cproject: Aufgabe_3.cproject.yml
+  cbuilds:
+    - cbuild: out/Aufgabe_3/ITSboard/Debug/Aufgabe_3.Debug+ITSboard.cbuild.yml
+      project: Aufgabe_3
+      configuration: .Debug+ITSboard
+      messages:
+        info:
+          - Aufgabe_3.cbuild-pack.yml - file is already up-to-date
+          - Aufgabe_3+ITSboard.cbuild-run.yml - file is already up-to-date
+          - Aufgabe_3.Debug+ITSboard.cbuild.yml - file is already up-to-date
+      packs-unused:
+        - pack: ARM::CMSIS-DSP@1.16.2
+        - pack: ARM::CMSIS-NN@6.0.0

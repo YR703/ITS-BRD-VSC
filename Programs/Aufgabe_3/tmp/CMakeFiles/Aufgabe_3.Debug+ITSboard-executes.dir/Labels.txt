@@ -1,0 +1,12 @@
+# Target labels
+ Aufgabe_3.Debug+ITSboard
+# Source files and their labels
+C:/wer/ITS-BRD-VSC/Programs/Aufgabe_3/tmp/CMakeFiles/Aufgabe_3.Debug+ITSboard-executes
+C:/wer/ITS-BRD-VSC/Programs/Aufgabe_3/tmp/CMakeFiles/Aufgabe_3.Debug+ITSboard-executes.rule
+C:/wer/ITS-BRD-VSC/Programs/Aufgabe_3/tmp/Aufgabe_3.Debug+ITSboard/src/Aufgabe_3.Debug+ITSboard-stamp/Aufgabe_3.Debug+ITSboard-executes.rule
+C:/wer/ITS-BRD-VSC/Programs/Aufgabe_3/tmp/Aufgabe_3.Debug+ITSboard/src/Aufgabe_3.Debug+ITSboard-stamp/Aufgabe_3.Debug+ITSboard-build.rule
+C:/wer/ITS-BRD-VSC/Programs/Aufgabe_3/tmp/Aufgabe_3.Debug+ITSboard/src/Aufgabe_3.Debug+ITSboard-stamp/Aufgabe_3.Debug+ITSboard-configure.rule
+C:/wer/ITS-BRD-VSC/Programs/Aufgabe_3/tmp/Aufgabe_3.Debug+ITSboard/src/Aufgabe_3.Debug+ITSboard-stamp/Aufgabe_3.Debug+ITSboard-patch.rule
+C:/wer/ITS-BRD-VSC/Programs/Aufgabe_3/tmp/Aufgabe_3.Debug+ITSboard/src/Aufgabe_3.Debug+ITSboard-stamp/Aufgabe_3.Debug+ITSboard-update.rule
+C:/wer/ITS-BRD-VSC/Programs/Aufgabe_3/tmp/Aufgabe_3.Debug+ITSboard/src/Aufgabe_3.Debug+ITSboard-stamp/Aufgabe_3.Debug+ITSboard-download.rule
+C:/wer/ITS-BRD-VSC/Programs/Aufgabe_3/tmp/Aufgabe_3.Debug+ITSboard/src/Aufgabe_3.Debug+ITSboard-stamp/Aufgabe_3.Debug+ITSboard-mkdir.rule

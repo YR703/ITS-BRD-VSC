@@ -1,0 +1,27 @@
+#include "gpio.h"
+#include "berechnung.h"
+#include "error_drehgeber.h"
+#include "output.h"
+#include <stdbool.h>
+
+#include "terminal.h"
+
+/**
+ * @brief  Diese Funktion geht mit dem Fehler um und bleibt solange dort bis der
+ * Fehler zurückgesetzt wird
+ * @param  fehler
+ */
+int error_number(int fehler) {
+    led_fehler();
+    if (fehler == PHASEUEBERSPRUNGEN) {
+        while (1) {
+            int s6Pressed = readGPIOPin(BUTTON_PORT, S6);
+            if (s6Pressed == true) {
+                setGPIOPin(GPIOE, D21, false);
+                reset();
+                return 0;
+            }
+        }
+    }
+    return 0;
+}

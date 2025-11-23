@@ -1,0 +1,8 @@
+C:/wer/ITS-BRD-VSC/Programs/Aufgabe_3/tmp/CMakeFiles/database.dir
+C:/wer/ITS-BRD-VSC/Programs/Aufgabe_3/tmp/CMakeFiles/Aufgabe_3.Debug+ITSboard.dir
+C:/wer/ITS-BRD-VSC/Programs/Aufgabe_3/tmp/CMakeFiles/Aufgabe_3.Debug+ITSboard-build.dir
+C:/wer/ITS-BRD-VSC/Programs/Aufgabe_3/tmp/CMakeFiles/Aufgabe_3.Debug+ITSboard-configure.dir
+C:/wer/ITS-BRD-VSC/Programs/Aufgabe_3/tmp/CMakeFiles/Aufgabe_3.Debug+ITSboard-executes.dir
+C:/wer/ITS-BRD-VSC/Programs/Aufgabe_3/tmp/CMakeFiles/Aufgabe_3.Debug+ITSboard-database.dir
+C:/wer/ITS-BRD-VSC/Programs/Aufgabe_3/tmp/CMakeFiles/edit_cache.dir
+C:/wer/ITS-BRD-VSC/Programs/Aufgabe_3/tmp/CMakeFiles/rebuild_cache.dir

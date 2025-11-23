@@ -1,6 +1,10 @@
 CompileFlags:
+<<<<<<< Updated upstream
   CompilationDatabase: >-
     c:\Users\infwtx851\Downloads\ITS-BRD-VSC-testing\Programs\Aufgabe1\out\Aufgabe1\ITSboard\Debug
+=======
+  CompilationDatabase: c:\wer\ITS-BRD-VSC\Programs\Aufgabe1\out\Aufgabe1\ITSboard\Debug
+>>>>>>> Stashed changes
   Add:
     - '-D_ILP32=1'
     - '-D_USE_STATIC_INLINE=1'
@@ -413,6 +417,7 @@ CompileFlags:
     - '-D__thumb__=1'
     - '-D__ARMCOMPILER_LIBCXX=1'
     - >-
+<<<<<<< Updated upstream
       -IC:/Users/infwtx851/Downloads/ITS-BRD-VSC-testing/Programs/Aufgabe1/../../stm32cubef4/Drivers/CMSIS/Device/ST/STM32F4xx/Include
     - >-
       -IC:/Users/infwtx851/Downloads/ITS-BRD-VSC-testing/Programs/Aufgabe1/../../stm32cubef4/Drivers/CMSIS/Include
@@ -437,3 +442,24 @@ CompileFlags:
     - >-
       -IC:/Users/infwtx851/Downloads/ITS-BRD-VSC-testing/Programs/Aufgabe1/../../ITS_BRD_LIB/Inc
     - '-IC:/Users/infwtx851/Downloads/ITS-BRD-VSC-testing/Programs/Aufgabe1/Inc'
+=======
+      -IC:/wer/ITS-BRD-VSC/Programs/Aufgabe1/../../stm32cubef4/Drivers/CMSIS/Device/ST/STM32F4xx/Include
+    - >-
+      -IC:/wer/ITS-BRD-VSC/Programs/Aufgabe1/../../stm32cubef4/Drivers/CMSIS/Include
+    - >-
+      -IC:/wer/ITS-BRD-VSC/Programs/Aufgabe1/../../stm32cubef4/Drivers/STM32F4xx_HAL_Driver/Inc
+    - >-
+      -IC:/wer/ITS-BRD-VSC/Programs/Aufgabe1/../../stm32cubef4/Drivers/BSP/STM32F4xx_Nucleo_144
+    - '-IC:/wer/ITS-BRD-VSC/Programs/Aufgabe1/../../stm32cubef4/Utilities/Fonts'
+    - '-IC:/wer/ITS-BRD-VSC/Programs/Aufgabe1/../../DisplayWaveshare/Inc'
+    - >-
+      -IC:/wer/ITS-BRD-VSC/Programs/Aufgabe1/../../ITS_BRD_LIB/Utilities/AddFonts
+    - '-IC:/wer/ITS-BRD-VSC/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard'
+    - '-IC:/wer/ITS-BRD-VSC/Programs/Aufgabe1/RTE/_Debug_ITSboard'
+    - >-
+      -IC:/Users/youse/AppData/Local/Arm/Packs/ARM/CMSIS/6.1.0/CMSIS/Core/Include
+    - >-
+      -IC:/Users/youse/AppData/Local/Arm/Packs/Keil/STM32F4xx_DFP/2.17.1/Drivers/CMSIS/Device/ST/STM32F4xx/Include
+    - '-IC:/wer/ITS-BRD-VSC/Programs/Aufgabe1/../../ITS_BRD_LIB/Inc'
+    - '-IC:/wer/ITS-BRD-VSC/Programs/Aufgabe1/Inc'
+>>>>>>> Stashed changes

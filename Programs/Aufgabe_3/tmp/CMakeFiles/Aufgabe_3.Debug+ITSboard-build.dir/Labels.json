@@ -1,0 +1,37 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "C:/wer/ITS-BRD-VSC/Programs/Aufgabe_3/tmp/CMakeFiles/Aufgabe_3.Debug+ITSboard-build"
+		},
+		{
+			"file" : "C:/wer/ITS-BRD-VSC/Programs/Aufgabe_3/tmp/CMakeFiles/Aufgabe_3.Debug+ITSboard-build.rule"
+		},
+		{
+			"file" : "C:/wer/ITS-BRD-VSC/Programs/Aufgabe_3/tmp/Aufgabe_3.Debug+ITSboard/src/Aufgabe_3.Debug+ITSboard-stamp/Aufgabe_3.Debug+ITSboard-build.rule"
+		},
+		{
+			"file" : "C:/wer/ITS-BRD-VSC/Programs/Aufgabe_3/tmp/Aufgabe_3.Debug+ITSboard/src/Aufgabe_3.Debug+ITSboard-stamp/Aufgabe_3.Debug+ITSboard-configure.rule"
+		},
+		{
+			"file" : "C:/wer/ITS-BRD-VSC/Programs/Aufgabe_3/tmp/Aufgabe_3.Debug+ITSboard/src/Aufgabe_3.Debug+ITSboard-stamp/Aufgabe_3.Debug+ITSboard-patch.rule"
+		},
+		{
+			"file" : "C:/wer/ITS-BRD-VSC/Programs/Aufgabe_3/tmp/Aufgabe_3.Debug+ITSboard/src/Aufgabe_3.Debug+ITSboard-stamp/Aufgabe_3.Debug+ITSboard-update.rule"
+		},
+		{
+			"file" : "C:/wer/ITS-BRD-VSC/Programs/Aufgabe_3/tmp/Aufgabe_3.Debug+ITSboard/src/Aufgabe_3.Debug+ITSboard-stamp/Aufgabe_3.Debug+ITSboard-download.rule"
+		},
+		{
+			"file" : "C:/wer/ITS-BRD-VSC/Programs/Aufgabe_3/tmp/Aufgabe_3.Debug+ITSboard/src/Aufgabe_3.Debug+ITSboard-stamp/Aufgabe_3.Debug+ITSboard-mkdir.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"Aufgabe_3.Debug+ITSboard"
+		],
+		"name" : "Aufgabe_3.Debug+ITSboard-build"
+	}
+}
