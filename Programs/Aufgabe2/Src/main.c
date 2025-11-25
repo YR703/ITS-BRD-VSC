@@ -16,13 +16,11 @@
 int main(void) {
     int input = 0, output = 0, phasen = 0, reset = 0;
     double winkel = 0, geschw = 0;
-    int last_phasen = -1;
     int print_idx = 0;
     uint32_t timer_ticks = 0;
 
-    char old_winkel[OUTPUT_SIZE];
-    char old_geschw[OUTPUT_SIZE];
-
+    char old_winkel[OUTPUT_SIZE] = {0};
+    char old_geschw[OUTPUT_SIZE] = {0};
     char buf_winkel[OUTPUT_SIZE];
     char buf_geschw[OUTPUT_SIZE];
 
@@ -50,39 +48,59 @@ int main(void) {
         output = phasen_ueberpruefung(input, reset);
         timer_ticks = getTimeStamp();
 
+        // --- Reset-Handling für S7 ---
+       if (reset) {
+    reset_system();  // Reset FSM and counters
+
+    // --- LCD clear and proper reset output ---
+    lcdGotoXY(26, 0);
+    lcdPrintS("  0.0   ");
+    lcdGotoXY(26, 2);
+    lcdPrintS("  0.0   ");
+
+    // --- LEDs reset ---
+    led_keine_aenderung();
+    led_fehler_reset();
+
+    // --- reset buffers so formatting restarts clean ---
+    for (int i = 0; i < OUTPUT_SIZE; i++) {
+        old_winkel[i] = ' ';
+        old_geschw[i] = ' ';
+    }
+
+    continue;
+}
+
+
         phasen = getphasen();
         winkel = get_winkel();
         geschw = get_winkelgeschw(timer_ticks, winkel, output == 0);
 
-        if(print_idx == 0)
-        {
-          snprintf(buf_winkel, OUTPUT_SIZE, "%7.1f", winkel);
-          snprintf(buf_geschw, OUTPUT_SIZE, "%7.1f", geschw);
+        if (print_idx == 0) {
+            snprintf(buf_winkel, OUTPUT_SIZE, "%7.1f", winkel);
+            snprintf(buf_geschw, OUTPUT_SIZE, "%7.1f", geschw);
         }
 
-        if(buf_winkel[print_idx] != old_winkel[print_idx])
-        {
-          old_winkel[print_idx] = buf_winkel[print_idx];
-          lcdGotoXY(26 + print_idx, 0);
-          lcdPrintC(buf_winkel[print_idx]);
+        if (buf_winkel[print_idx] != old_winkel[print_idx]) {
+            old_winkel[print_idx] = buf_winkel[print_idx];
+            lcdGotoXY(26 + print_idx, 0);
+            lcdPrintC(buf_winkel[print_idx]);
         }
 
-        if(buf_geschw[print_idx] != old_geschw[print_idx])
-        {
-          old_geschw[print_idx] = buf_geschw[print_idx];
-          lcdGotoXY(26 + print_idx, 2);
-          lcdPrintC(buf_geschw[print_idx]);
+        if (buf_geschw[print_idx] != old_geschw[print_idx]) {
+            old_geschw[print_idx] = buf_geschw[print_idx];
+            lcdGotoXY(26 + print_idx, 2);
+            lcdPrintC(buf_geschw[print_idx]);
         }
 
         print_idx++;
-        if(print_idx == OUTPUT_SIZE - 1)
-        {
-          print_idx = 0;
+        if (print_idx == OUTPUT_SIZE - 1) {
+            print_idx = 0;
         }
 
         if (output == PHASEUEBERSPRUNGEN)
             error_number(output);
-        
+
         led_counter(phasen);
     }
 }

@@ -21,7 +21,7 @@ typedef enum {
 
 extern StateType delta[14][4];
 
-void reset(void);
+void reset_system(void);
 int phasen_ueberpruefung(int input, int resetpressed);
 int getphasen(void);
 double get_winkel(void);

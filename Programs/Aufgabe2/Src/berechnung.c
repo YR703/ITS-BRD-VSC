@@ -1,7 +1,6 @@
 #include "berechnung.h"
 #include "output.h"
 #include "error_drehgeber.h"
-#include "berechnung.h"
 #include "timer.h"
 
 // Definition of the state transition table
@@ -36,44 +35,59 @@ StateType delta[14][4] = {
   {AForRot, DNoRot, Err, CBackRot}
 };
 
-
 int state = Start;
 int prev = 0;
 int phasen = 0;
 double winkel = 0;
 double geschw = 0;
 
-void reset() {
+void reset_system(void) {
     prev = 0;
     phasen = 0;
     state = Start;
+    led_keine_aenderung(); // turn off LEDs after reset
 }
 
 int phasen_ueberpruefung(int input, int resetpressed) {
     state = delta[state][input];
-    if (state == prev) return 1;
+
+    // if no state change, turn LEDs off and return
+    if (state == prev) {
+        led_keine_aenderung();
+        return 1;
+    }
+
     prev = state;
-    if (resetpressed) reset();
+
+    if (resetpressed)
+        reset_system();
 
     switch (state) {
         case Err:
-            led_keine_aenderung();
+            led_fehler();
             return PHASEUEBERSPRUNGEN;
+
         case AForRot: case BForRot: case CForRot: case DForRot:
             led_vorwaerts();
-            phasen++;
+            phasen++;   // forward rotation increases angle
             break;
+
         case ABackRot: case BBackRot: case CBackRot: case DBackRot:
             led_rueckwaerts();
-            phasen++;
+            phasen--;   // backward rotation decreases angle
+            break;
+
+        default:
+            led_keine_aenderung(); // stop condition: LEDs off
             break;
     }
+
     return 0;
 }
 
-int getphasen() { return phasen; }
+int getphasen(void) { return phasen; }
 
-double get_winkel() { return phasen * SCHLITZE; }
+double get_winkel(void) { return phasen * SCHLITZE; }
 
 double get_winkelgeschw(uint32_t timer_ticks, double winkel, bool change)
 {
@@ -81,11 +95,9 @@ double get_winkelgeschw(uint32_t timer_ticks, double winkel, bool change)
     static double alt_winkel = 0.0;
 
     double zeit_diff = (timer_ticks - alt_zeit) / (TICKS_PER_US * 1000 * 1000.0);
-    if((change && zeit_diff > 0.25) || zeit_diff > 0.5)
-    {
+    if ((change && zeit_diff > 0.25) || zeit_diff > 0.5) {
         double winkel_diff = winkel - alt_winkel;
-        if(zeit_diff != 0)
-        {
+        if (zeit_diff != 0) {
             geschw = winkel_diff / zeit_diff;
         }
 

@@ -15,8 +15,13 @@ void led_rueckwaerts() {
 }
 
 void led_fehler() {
-  HAL_GPIO_WritePin(GPIOE, D21, GPIO_PIN_SET);
+    HAL_GPIO_WritePin(GPIOE, GPIO_PIN_5, GPIO_PIN_SET);  // D21 AN
 }
+
+void led_fehler_reset() {
+    HAL_GPIO_WritePin(GPIOE, GPIO_PIN_5, GPIO_PIN_RESET); // D21 AUS
+}
+
 
 void led_keine_aenderung() {
   HAL_GPIO_WritePin(GPIOE, D23, GPIO_PIN_RESET);

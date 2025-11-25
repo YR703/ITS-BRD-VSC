@@ -8,5 +8,6 @@ void led_rueckwaerts(void);
 void led_fehler(void);
 void led_keine_aenderung(void);
 void led_counter(int phasen);
+void led_fehler_reset(void);
 
 #endif
