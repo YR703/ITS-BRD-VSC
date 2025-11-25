@@ -2,38 +2,34 @@
 #include "output.h"
 #include "error_drehgeber.h"
 #include "timer.h"
+#include <math.h>
 
-// Definition of the state transition table
-StateType delta[14][4] = {
-  // Start
-  {ANoRot, DNoRot, BNoRot, CNoRot},
-  // Err
-  {Err, Err, Err, Err},
-  // AForRot
-  {AForRot, DBackRot, BForRot, Err},
-  // ABackRot
-  {ABackRot, DBackRot, BForRot, Err},
-  // ANoRot
-  {ANoRot, DBackRot, BForRot, Err},
-  // BForRot
-  {ABackRot, Err, BForRot, CForRot},
-  // BBackRot
-  {ABackRot, Err, BBackRot, CForRot},
-  // BNoRot
-  {ABackRot, Err, BNoRot, CForRot},
-  // CForRot
-  {Err, DForRot, BBackRot, CForRot},
-  // CBackRot
-  {Err, DForRot, BBackRot, CBackRot},
-  // CNoRot
-  {Err, DForRot, BBackRot, CNoRot},
-  // DForRot
-  {AForRot, DForRot, Err, CBackRot},
-  // DBackRot
-  {AForRot, DBackRot, Err, CBackRot},
-  // DNoRot
-  {AForRot, DNoRot, Err, CBackRot}
+// Zustandsübergangstabelle
+// Vereinfachte Zustandsmatrix für 14 Zustände und 4 Eingaben
+const StateType delta[14][4] = {
+    // Start und Fehler
+    [Start]     = { ANoRot, DNoRot, BNoRot, CNoRot },
+    [Err]       = { Err, Err, Err, Err },
+
+    // Vorwärtsrotation
+    [AForRot]   = { AForRot, DBackRot, BForRot, Err },
+    [BForRot]   = { ABackRot, Err, BForRot, CForRot },
+    [CForRot]   = { Err, DForRot, BBackRot, CForRot },
+    [DForRot]   = { AForRot, DForRot, Err, CBackRot },
+
+    // Rückwärtsrotation
+    [ABackRot]  = { ABackRot, DBackRot, BForRot, Err },
+    [BBackRot]  = { ABackRot, Err, BBackRot, CForRot },
+    [CBackRot]  = { Err, DForRot, BBackRot, CBackRot },
+    [DBackRot]  = { AForRot, DBackRot, Err, CBackRot },
+
+    // Keine Bewegung (No Rotation)
+    [ANoRot]    = { ANoRot, DBackRot, BForRot, Err },
+    [BNoRot]    = { ABackRot, Err, BNoRot, CForRot },
+    [CNoRot]    = { Err, DForRot, BBackRot, CNoRot },
+    [DNoRot]    = { AForRot, DNoRot, Err, CBackRot }
 };
+
 
 int state = Start;
 int prev = 0;
@@ -45,65 +41,69 @@ void reset_system(void) {
     prev = 0;
     phasen = 0;
     state = Start;
-    led_keine_aenderung(); // turn off LEDs after reset
+    geschw = 0;
+    winkel = 0;
+    led_keine_aenderung();
+    led_fehler_reset();
 }
 
 int phasen_ueberpruefung(int input, int resetpressed) {
     state = delta[state][input];
-
-    // if no state change, turn LEDs off and return
-    if (state == prev) {
-        led_keine_aenderung();
-        return 1;
-    }
-
+    if (state == prev) return 1;
     prev = state;
-
-    if (resetpressed)
-        reset_system();
+    if (resetpressed) reset_system();
 
     switch (state) {
         case Err:
-            led_fehler();
+            led_fehler();         // D21 EIN
+            led_keine_aenderung(); // D22 + D23 AUS bei Fehler
             return PHASEUEBERSPRUNGEN;
 
         case AForRot: case BForRot: case CForRot: case DForRot:
-            led_vorwaerts();
-            phasen++;   // forward rotation increases angle
+            led_vorwaerts();      // D23 AN, D22 AUS
+            phasen++;
             break;
 
         case ABackRot: case BBackRot: case CBackRot: case DBackRot:
-            led_rueckwaerts();
-            phasen--;   // backward rotation decreases angle
+            led_rueckwaerts();    // D22 AN, D23 AUS
+            phasen--;
             break;
 
         default:
-            led_keine_aenderung(); // stop condition: LEDs off
             break;
     }
-
     return 0;
 }
 
 int getphasen(void) { return phasen; }
 
-double get_winkel(void) { return phasen * SCHLITZE; }
+double get_winkel(void) { return fabs(phasen * SCHLITZE); }
 
 double get_winkelgeschw(uint32_t timer_ticks, double winkel, bool change)
 {
     static uint32_t alt_zeit = 0;
     static double alt_winkel = 0.0;
+    static double geschw_filter = 0.0;
 
-    double zeit_diff = (timer_ticks - alt_zeit) / (TICKS_PER_US * 1000 * 1000.0);
-    if ((change && zeit_diff > 0.25) || zeit_diff > 0.5) {
-        double winkel_diff = winkel - alt_winkel;
-        if (zeit_diff != 0) {
-            geschw = winkel_diff / zeit_diff;
-        }
+    // Zeitdifferenz in Sekunden berechnen
+    double zeit_diff = (timer_ticks - alt_zeit) / (TICKS_PER_US * 1e6);
 
-        alt_winkel = winkel;
-        alt_zeit = timer_ticks;
-    }
+    // Nur alle 100 ms aktualisieren
+    if (zeit_diff < 0.25) return geschw_filter;
 
-    return geschw;
+    double winkel_diff = fabs(winkel - alt_winkel);
+
+    // Geschwindigkeit berechnen
+    double geschw_neu = winkel_diff / zeit_diff;
+
+    // Sanft glätten (80 % alte, 20 % neue Werte)
+    geschw_filter = (0.8 * geschw_filter) + (0.2 * geschw_neu);
+
+    // Begrenzen auf sinnvolle Werte
+    if (geschw_filter > 300) geschw_filter = 300;
+    if (geschw_filter < 0.05) geschw_filter = 0;
+
+    alt_winkel = winkel;
+    alt_zeit = timer_ticks;
+    return geschw_filter;
 }

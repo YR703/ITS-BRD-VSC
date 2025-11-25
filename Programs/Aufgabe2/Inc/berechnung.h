@@ -19,7 +19,7 @@ typedef enum {
     DForRot = 11, DBackRot = 12, DNoRot = 13
 } StateType;
 
-extern StateType delta[14][4];
+extern const StateType delta[14][4];
 
 void reset_system(void);
 int phasen_ueberpruefung(int input, int resetpressed);
