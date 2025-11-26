@@ -1,134 +1,10 @@
 {
-  "cmsis-csolution.actions": [
-    {
-      "path": "Programs/TestNewFontAssambler/TestNewFontAssembler.csolution.yml",
-      "target": "ITSboard_Assembly",
-      "config": {
-        "run": "arm-debugger.flash: Flash Device"
-      },
-      "projects": [
-        {
-          "path": "Programs/TestNewFontAssambler/TestNewFontAssembler.cproject.yml",
-          "config": {
-            "run": "arm-debugger.flash: Flash Device"
-          }
-        }
-      ]
-    },
-    {
-      "path": "Programs/TestNewFont/TestNewFont.csolution.yml",
-      "target": "ITSboard",
-      "config": {
-        "run": "arm-debugger.flash: Flash Device"
-      }
-    },
-    {
-      "path": "Programs/GTPLauflichtKRFASM/GTPLauflichtKRFASM.csolution.yml",
-      "target": "ITSboard_Assembly",
-      "config": {
-        "run": "arm-debugger.flash: Flash Device"
-      }
-    },
-    {
-      "path": "Programs/LWIPExamples/LWIPUDPServer.csolution.yml",
-      "target": "ITSboard",
-      "config": {
-        "run": "arm-debugger.flash: Flash Device"
-      }
-    },
-    {
-      "path": "Programs/LWIPExamples/LWIPIperf.csolution.yml",
-      "target": "ITSboard",
-      "config": {
-        "run": "arm-debugger.flash: Flash Device"
-      },
-      "projects": [
-        {
-          "path": "Programs/LWIPExamples/LWIPIperf.cproject.yml",
-          "config": {
-            "run": "arm-debugger.flash: Flash Device",
-            "debug": "Arm Debugger"
-          }
-        }
-      ]
-    },
-    {
-      "path": "Programs/LWIPExamples/LWIPHttp.csolution.yml",
-      "target": "ITSboard",
-      "config": {
-        "run": "arm-debugger.flash: Flash Device",
-        "debug": "Arm Debugger"
-      }
-    },
-    {
-      "path": "Programs/LWIPExamples/LWIPWeather.csolution.yml",
-      "target": "ITSboard",
-      "config": {
-        "run": "arm-debugger.flash: Flash Device",
-        "debug": "Arm Debugger"
-      },
-      "projects": [
-        {
-          "path": "Programs/LWIPExamples/LWIPWeather.cproject.yml",
-          "config": {
-            "run": "arm-debugger.flash: Flash Device"
-          }
-        }
-      ]
-    },
-    {
-      "path": "Programs/Test/Test.csolution.yml",
-      "target": "ITSboard",
-      "config": {
-        "run": "arm-debugger.flash: Flash Device"
-      }
-    },
-    {
-      "path": "Programs/Bingo/Bingo.csolution.yml",
-      "target": "ITSboard",
-      "config": {
-        "run": "arm-debugger.flash: Flash Device"
-      }
-    },
-    {
-      "path": "Programs/LWIPExamples/LWIPMqtt.csolution.yml",
-      "target": "ITSboard",
-      "config": {
-        "run": "arm-debugger.flash: Flash Device",
-        "debug": "Arm Debugger"
-      },
-      "projects": [
-        {
-          "path": "Programs/LWIPExamples/LWIPMqtt.cproject.yml",
-          "config": {
-            "run": "arm-debugger.flash: Flash Device"
-          }
-        }
-      ]
-    },
-    {
-      "path": "Programs/Stack/Stack.csolution.yml",
-      "target": "ITSboard",
-      "config": {
-        "run": "arm-debugger.flash: Flash Device"
-      }
-    }
-  ],
-  "cmake.ignoreCMakeListsMissing": true,
-  "C_Cpp_Runner.msvcBatchPath": "C:/Program Files/Microsoft Visual Studio/VR_NR/Community/VC/Auxiliary/Build/vcvarsall.bat",
-  "clangd.arguments": [
-<<<<<<< HEAD
-    "--compile-commands-dir=c:\\Users\\youse\\OneDrive\\Desktop\\GS\\ITS-BRD-VSC\\Programs\\Aufgabe1\\out\\Aufgabe1\\ITSboard\\Debug"
-  ],
-  "debug.hideSlowPreLaunchWarning": true
-=======
-    "--compile-commands-dir=/Users/martin/Documents/git/ITS-BRD-VSC/Programs/Stack/out/Stack/ITSboard/Debug"
-  ],
   "C_Cpp_Runner.cCompilerPath": "gcc",
   "C_Cpp_Runner.cppCompilerPath": "g++",
   "C_Cpp_Runner.debuggerPath": "gdb",
   "C_Cpp_Runner.cStandard": "",
   "C_Cpp_Runner.cppStandard": "",
+  "C_Cpp_Runner.msvcBatchPath": "C:/Program Files/Microsoft Visual Studio/VR_NR/Community/VC/Auxiliary/Build/vcvarsall.bat",
   "C_Cpp_Runner.useMsvc": false,
   "C_Cpp_Runner.warnings": [
     "-Wall",
@@ -179,6 +55,10 @@
   "C_Cpp_Runner.useLeakSanitizer": false,
   "C_Cpp_Runner.showCompilationTime": false,
   "C_Cpp_Runner.useLinkTimeOptimization": false,
-  "C_Cpp_Runner.msvcSecureNoWarnings": false
->>>>>>> 497e9755b508e7cdc252118a378f7d69aae5273e
+  "C_Cpp_Runner.msvcSecureNoWarnings": false,
+  "debug.hideSlowPreLaunchWarning": true,
+  "debug.showInStatusBar": "never",
+  "clangd.arguments": [
+    "--compile-commands-dir=d:\\GSWS\\ITS-BRD-VSC\\Programs\\Aufgabe2\\out\\Aufgabe2\\ITSboard\\Debug"
+  ]
 }

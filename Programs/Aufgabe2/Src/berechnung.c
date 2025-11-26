@@ -4,21 +4,23 @@
 #include "timer.h"
 #include <math.h>
 
-// Zustandsübergangstabelle
+//Zustandsübergangstabelle
+//Vereinfachte Zustandsmatrix für 14 Zustände und 4 Eingaben
 const StateType delta[14][4] = {
+    // Start und Fehler
     [Start]     = { ANoRot, DNoRot, BNoRot, CNoRot },
     [Err]       = { Err, Err, Err, Err },
-
+        // Vorwärtsrotation
     [AForRot]   = { AForRot, DBackRot, BForRot, Err },
     [BForRot]   = { ABackRot, Err, BForRot, CForRot },
     [CForRot]   = { Err, DForRot, BBackRot, CForRot },
     [DForRot]   = { AForRot, DForRot, Err, CBackRot },
-
+        //Rückwärtsrotation
     [ABackRot]  = { ABackRot, DBackRot, BForRot, Err },
     [BBackRot]  = { ABackRot, Err, BBackRot, CForRot },
     [CBackRot]  = { Err, DForRot, BBackRot, CBackRot },
     [DBackRot]  = { AForRot, DBackRot, Err, CBackRot },
-
+        //Keine Bewegung
     [ANoRot]    = { ANoRot, DBackRot, BForRot, Err },
     [BNoRot]    = { ABackRot, Err, BNoRot, CForRot },
     [CNoRot]    = { Err, DForRot, BBackRot, CNoRot },
@@ -36,6 +38,7 @@ static uint32_t alt_zeit = 0;
 static double alt_winkel = 0.0;
 static double geschw_filter = 0.0;
 
+//Setzt das System in den Ausgangszustand zurück
 void reset_system(void) {
     prev = 0;
     phasen = 0;
@@ -48,26 +51,29 @@ void reset_system(void) {
     led_keine_aenderung();
     led_fehler_reset();
 }
-
+        /*Führt den Zustandswechsel der FSM durch und steuert die LEDs
+        * Rückgabe: 0 bei Änderung, 1 bei Stillstand, PHASEUEBERSPRUNGEN bei Fehler 
+        */
 int phasen_ueberpruefung(int input, int resetpressed) {
     state = delta[state][input];
     if (state == prev) return 1;
     prev = state;
     if (resetpressed) reset_system();
 
+        //Aktionen basierend auf dem neuen Zustand
     switch (state) {
         case Err:
-            led_fehler();
-            led_keine_aenderung();
+            led_fehler();   //D21 EIN
+            led_keine_aenderung(); //D22 + D23 AUS bei Fehler
             return PHASEUEBERSPRUNGEN;
 
         case AForRot: case BForRot: case CForRot: case DForRot:
-            led_vorwaerts();
+            led_vorwaerts(); // D23 AN, D22 AUS
             phasen++;
             break;
 
         case ABackRot: case BBackRot: case CBackRot: case DBackRot:
-            led_rueckwaerts();
+            led_rueckwaerts(); // D22 AN, D23 AUS
             phasen--;
             break;
 
@@ -77,19 +83,20 @@ int phasen_ueberpruefung(int input, int resetpressed) {
     }
     return 0;
 }
-
+        //Getter für die Anzahl der Phasenwechsel
 int getphasen(void) { return phasen; }
-
+        //Berechnet den aktuellen Winkel basierend auf den Phasen
 double get_winkel(void) { return fabs(phasen * SCHLITZE); }
-
+        //Berechnet die Winkelgeschwindigkeit
 double get_winkelgeschw(uint32_t timer_ticks, double winkel, bool change)
 {
+            //Zeitdifferenz in Sekunden berechnen
     double zeit_diff = (timer_ticks - alt_zeit) / (TICKS_PER_US * 1e6);
-    if (zeit_diff < 0.25) return geschw_filter;
+    if (zeit_diff < 0.25) return geschw_filter; //Nur alle 250 ms aktualisieren
 
     double winkel_diff = fabs(winkel - alt_winkel);
-    double geschw_neu = winkel_diff / zeit_diff;
-
+    double geschw_neu = winkel_diff / zeit_diff; //Geschwindigkeit berechnen
+        // Begrenzen auf sinnvolle Werte
     if (geschw_neu > 500) geschw_neu = 500;
     if (geschw_neu < 0.05) geschw_neu = 0;
 
