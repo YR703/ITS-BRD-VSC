@@ -32,7 +32,7 @@ int main(void) {
     // --- Bildschirm vorbereiten ---
     lcdGotoXY(0, 0);
     lcdSetFont(16);
-    lcdPrintS("Drehgeber gestartet...");
+    lcdPrintS("...");
     HAL_Delay(1000);
 
     lcdGotoXY(0, 0);
