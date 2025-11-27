@@ -50,7 +50,7 @@ int main(void) { //Steuert den Super Loop, die Zeitmessung und die Display Ausga
 
         //Reset für S7
        if (reset) {
-    reset_system();  // Reset FSM & counters
+    reset_system();  // FSM und Zähler zurücksetzen
 
     //Display aufräumen
     lcdGotoXY(26, 0);

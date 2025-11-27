@@ -1,12 +1,12 @@
 # Target labels
  Aufgabe1.Debug+ITSboard
 # Source files and their labels
-D:/GSWS/ITS-BRD-VSC/Programs/Aufgabe1/tmp/CMakeFiles/Aufgabe1.Debug+ITSboard-executes
-D:/GSWS/ITS-BRD-VSC/Programs/Aufgabe1/tmp/CMakeFiles/Aufgabe1.Debug+ITSboard-executes.rule
-D:/GSWS/ITS-BRD-VSC/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-executes.rule
-D:/GSWS/ITS-BRD-VSC/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-build.rule
-D:/GSWS/ITS-BRD-VSC/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-configure.rule
-D:/GSWS/ITS-BRD-VSC/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-patch.rule
-D:/GSWS/ITS-BRD-VSC/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-update.rule
-D:/GSWS/ITS-BRD-VSC/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-download.rule
-D:/GSWS/ITS-BRD-VSC/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-mkdir.rule
+C:/TI_Labor/GSy/ITS-BRD-VSC/Programs/Aufgabe1/tmp/CMakeFiles/Aufgabe1.Debug+ITSboard-executes
+C:/TI_Labor/GSy/ITS-BRD-VSC/Programs/Aufgabe1/tmp/CMakeFiles/Aufgabe1.Debug+ITSboard-executes.rule
+C:/TI_Labor/GSy/ITS-BRD-VSC/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-executes.rule
+C:/TI_Labor/GSy/ITS-BRD-VSC/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-build.rule
+C:/TI_Labor/GSy/ITS-BRD-VSC/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-configure.rule
+C:/TI_Labor/GSy/ITS-BRD-VSC/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-patch.rule
+C:/TI_Labor/GSy/ITS-BRD-VSC/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-update.rule
+C:/TI_Labor/GSy/ITS-BRD-VSC/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-download.rule
+C:/TI_Labor/GSy/ITS-BRD-VSC/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-mkdir.rule

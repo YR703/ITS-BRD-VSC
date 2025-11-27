@@ -1,9 +1,9 @@
 <!doctype html public "-//w3c//dtd html 4.0 transitional//en">
 <html><head>
-<title>Static Call Graph - [D:\GSWS\ITS-BRD-VSC\Programs\Aufgabe2\out\Aufgabe2\ITSboard\Debug\Aufgabe2.axf]</title></head>
+<title>Static Call Graph - [C:\TI_Labor\GSy\ITS-BRD-VSC\Programs\Aufgabe2\out\Aufgabe2\ITSboard\Debug\Aufgabe2.axf]</title></head>
 <body><HR>
-<H1>Static Call Graph for image D:\GSWS\ITS-BRD-VSC\Programs\Aufgabe2\out\Aufgabe2\ITSboard\Debug\Aufgabe2.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6240002: Last Updated: Wed Nov 26 13:10:42 2025
+<H1>Static Call Graph for image C:\TI_Labor\GSy\ITS-BRD-VSC\Programs\Aufgabe2\out\Aufgabe2\ITSboard\Debug\Aufgabe2.axf</H1><HR>
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6240002: Last Updated: Thu Nov 27 11:29:16 2025
 <BR><P>
 <H3>Maximum Stack Usage =        480 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -498,7 +498,6 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[86]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_drsub
 <LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
 <LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
-<LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_winkelgeschw
 </UL>
 
 <P><STRONG><a name="[85]"></a>__aeabi_dsub</STRONG> (Thumb, 6 bytes, Stack size 0 bytes, dadd.o(.text))
@@ -519,7 +518,6 @@ Global Symbols
 <BR>[Calls]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
 </UL>
 <BR>[Called By]<UL><LI><a href="#[10d]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_fp_digits
-<LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_winkelgeschw
 <LI><a href="#[f2]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_winkel
 </UL>
 
@@ -532,14 +530,14 @@ Global Symbols
 <LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_winkelgeschw
 </UL>
 
-<P><STRONG><a name="[f5]"></a>__aeabi_dcmple</STRONG> (Thumb, 54 bytes, Stack size 12 bytes, dcmple.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = __aeabi_dcmple
+<P><STRONG><a name="[f5]"></a>__aeabi_dcmpge</STRONG> (Thumb, 54 bytes, Stack size 12 bytes, dcmpge.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = __aeabi_dcmpge
 </UL>
 <BR>[Called By]<UL><LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_winkelgeschw
 </UL>
 
-<P><STRONG><a name="[f4]"></a>__aeabi_dcmpge</STRONG> (Thumb, 54 bytes, Stack size 12 bytes, dcmpge.o(.text))
-<BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = __aeabi_dcmpge
+<P><STRONG><a name="[f4]"></a>__aeabi_dcmpgt</STRONG> (Thumb, 54 bytes, Stack size 12 bytes, dcmpgt.o(.text))
+<BR><BR>[Stack]<UL><LI>Max Depth = 12<LI>Call Chain = __aeabi_dcmpgt
 </UL>
 <BR>[Called By]<UL><LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;get_winkelgeschw
 </UL>
@@ -568,9 +566,9 @@ Global Symbols
 
 <P><STRONG><a name="[7c]"></a>__aeabi_llsl</STRONG> (Thumb, 30 bytes, Stack size 0 bytes, llshl.o(.text))
 <BR><BR>[Called By]<UL><LI><a href="#[83]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;_double_epilogue
+<LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 <LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2ulz
 <LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uldivmod
-<LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 </UL>
 
 <P><STRONG><a name="[11d]"></a>_ll_shift_l</STRONG> (Thumb, 0 bytes, Stack size 0 bytes, llshl.o(.text), UNUSED)
@@ -1150,15 +1148,13 @@ Global Symbols
 <BR>[Called By]<UL><LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
 </UL>
 
-<P><STRONG><a name="[f3]"></a>get_winkelgeschw</STRONG> (Thumb, 400 bytes, Stack size 88 bytes, berechnung.o(.text.get_winkelgeschw))
-<BR><BR>[Stack]<UL><LI>Max Depth = 176<LI>Call Chain = get_winkelgeschw &rArr; __aeabi_dadd &rArr; _double_epilogue &rArr; _double_round
+<P><STRONG><a name="[f3]"></a>get_winkelgeschw</STRONG> (Thumb, 344 bytes, Stack size 64 bytes, berechnung.o(.text.get_winkelgeschw))
+<BR><BR>[Stack]<UL><LI>Max Depth = 152<LI>Call Chain = get_winkelgeschw &rArr; __aeabi_dsub &rArr; __aeabi_dadd &rArr; _double_epilogue &rArr; _double_round
 </UL>
-<BR>[Calls]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
-<LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dcmple
-<LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
-<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dcmpge
+<BR>[Calls]<UL><LI><a href="#[85]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dsub
+<LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dcmpge
+<LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dcmpgt
 <LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
-<LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
 <LI><a href="#[8a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ui2d
 </UL>
 <BR>[Called By]<UL><LI><a href="#[64]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;main
@@ -1854,10 +1850,10 @@ Local Symbols
 </UL>
 
 <P><STRONG><a name="[10d]"></a>_fp_digits</STRONG> (Thumb, 366 bytes, Stack size 64 bytes, printfa.o(i._fp_digits), UNUSED)
-<BR><BR>[Calls]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2ulz
+<BR><BR>[Calls]<UL><LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
+<LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_d2ulz
 <LI><a href="#[10e]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_cdrcmple
 <LI><a href="#[7a]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_uldivmod
-<LI><a href="#[81]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dadd
 <LI><a href="#[88]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_ddiv
 <LI><a href="#[87]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;__aeabi_dmul
 </UL>

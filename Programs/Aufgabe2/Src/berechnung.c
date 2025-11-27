@@ -83,27 +83,54 @@ int phasen_ueberpruefung(int input, int resetpressed) {
     }
     return 0;
 }
-        //Getter für die Anzahl der Phasenwechsel
-int getphasen(void) { return phasen; }
-        //Berechnet den aktuellen Winkel basierend auf den Phasen
-double get_winkel(void) { return fabs(phasen * SCHLITZE); }
-        //Berechnet die Winkelgeschwindigkeit
+int getphasen(void) {
+return phasen;
+}
+ 
+// Berechnet den aktuellen Winkel basierend auf den Phasen
+double get_winkel(void) {
+return fabs(phasen * SCHLITZE);
+}
+ 
+// Berechnet die Winkelgeschwindigkeit nur bei echter Änderung
 double get_winkelgeschw(uint32_t timer_ticks, double winkel, bool change)
 {
-            //Zeitdifferenz in Sekunden berechnen
+    static uint32_t alt_zeit = 0;
+    static double alt_winkel = 0.0;
+    static double letzte_geschw = 0.0;
+    
+    // Wenn keine Änderung stattfand → gib einfach den letzten Wert zurück
+    if (!change) {
+    return letzte_geschw;
+    }
+    
+    //Zeitdifferenz berechnen
     double zeit_diff = (timer_ticks - alt_zeit) / (TICKS_PER_US * 1e6);
-    if (zeit_diff < 0.25) return geschw_filter; //Nur alle 250 ms aktualisieren
+    
+    //Division durch 0 vermeiden
+    if (zeit_diff <= 0) {
+        return letzte_geschw;
+    }
+    
+    if (zeit_diff < 0.25) {
+            return letzte_geschw;
+    }
 
     double winkel_diff = fabs(winkel - alt_winkel);
-    double geschw_neu = winkel_diff / zeit_diff; //Geschwindigkeit berechnen
-        // Begrenzen auf sinnvolle Werte
-    if (geschw_neu > 500) geschw_neu = 500;
-    if (geschw_neu < 0.05) geschw_neu = 0;
+    
+    //Neue Geschwindigkeit berechnen
+    double geschw_neu = winkel_diff / zeit_diff;
+    
+    // Wenn das System stillsteht, Geschwindigkeit = 0
+    if (winkel_diff < 0.001) {
+        geschw_neu = 0.0;
+    }
 
-    // Glättung: 70% alt, 30% neu
-    geschw_filter = (0.7 * geschw_filter) + (0.3 * geschw_neu);
 
+    // die Werte speichern für nächsten Aufruf
     alt_winkel = winkel;
     alt_zeit = timer_ticks;
-    return geschw_filter;
+    letzte_geschw = geschw_neu;
+    
+    return geschw_neu;
 }

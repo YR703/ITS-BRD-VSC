@@ -59,6 +59,6 @@
   "debug.hideSlowPreLaunchWarning": true,
   "debug.showInStatusBar": "never",
   "clangd.arguments": [
-    "--compile-commands-dir=d:\\GSWS\\ITS-BRD-VSC\\Programs\\Aufgabe2\\out\\Aufgabe2\\ITSboard\\Debug"
+    "--compile-commands-dir=c:\\TI_Labor\\GSy\\ITS-BRD-VSC\\Programs\\Aufgabe2\\out\\Aufgabe2\\ITSboard\\Debug"
   ]
 }
