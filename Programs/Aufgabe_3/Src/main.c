@@ -1,8 +1,3 @@
-/*
- * main.c
- * Lösung für Teilaufgabe a - Angepasst an deine LCD_GUI.h
- */
-
 #include <stdio.h>
 #include <stdbool.h>
 #include "main.h"
@@ -15,7 +10,6 @@
 // Globale Variable für die Farbpalette (max 256 Farben bei 8-Bit BMP)
 static RGBQUAD palette[256];
 
-// --- HILFSFUNKTIONEN ---
 
 /**
  * Konvertiert eine 24-Bit Farbe (aus der BMP Palette) in 16-Bit (für das LCD).
@@ -29,31 +23,30 @@ uint16_t convertColor(RGBQUAD color) {
 }
 
 /**
- * Zeichnet einen Pixel sicher auf das Display.
- * Passt x und y in die "Coordinate" Struktur an.
+ * Zeichnet einen Pixel 
  */
 void drawPixelSafe(int x, int y, uint16_t color) {
     // Display Größe Check (480x320)
     if (x >= 0 && x < 480 && y >= 0 && y < 320) {
         
-        // WICHTIG: Hier erstellen wir die Struktur für die LCD Funktion
+        // Hier erstellen wir die Struktur für die LCD Funktion
         Coordinate coord;
         coord.x = x;
         coord.y = y;
 
-        // Aufruf mit genau 4 Parametern, wie in deiner LCD_GUI.h definiert:
+        // Aufruf mit 4 Parametern
         // 1. Coordinate, 2. Color, 3. PixelSize, 4. Style
         GUI_drawPoint(coord, color, DOT_PIXEL_1X1, DOT_FILL_AROUND);
     }
 }
 
-// --- HAUPTPROGRAMM ---
+// HAUPTPROGRAMM
 
 int main(void) {
     // 1. Initialisierung
     initInput();
     
-    // Bildschirm löschen (mit Farbe SCHWARZ, wie in LCD_GUI.h definiert)
+    // Bildschirm löschen (mit Farbe SCHWARZ)
     GUI_clear(BLACK); 
 
     while (1) {
@@ -95,14 +88,14 @@ int main(void) {
             if (b1 == EOF || b2 == EOF) break;
 
             if (b1 > 0) {
-                // --- ENCODED MODE ---
+                // ENCODED MODE
                 uint16_t color = convertColor(palette[b2]);
                 for (int i = 0; i < b1; i++) {
                     drawPixelSafe(x, y, color);
                     x++;
                 }
             } else {
-                // --- ESCAPE MODE ---
+                // ESCAPE MODE
                 if (b2 == 0) { 
                     // End of Line
                     x = 0;
