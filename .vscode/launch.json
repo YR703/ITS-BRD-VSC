@@ -24,8 +24,8 @@
             "name": "STLink@pyOCD (launch)",
             "type": "gdbtarget",
             "request": "launch",
-            "cwd": "${workspaceFolder}/Programs/Aufgabe2",
-            "program": "out/Aufgabe2/ITSboard/Debug/Aufgabe2.axf",
+            "cwd": "${workspaceFolder}/Programs/Aufgabe3",
+            "program": "out/Aufgabe3/ITSboard/Debug/Aufgabe3.axf",
             "gdb": "arm-none-eabi-gdb",
             "preLaunchTask": "CMSIS Load",
             "initCommands": [
@@ -65,8 +65,8 @@
             "name": "STLink@pyOCD (attach)",
             "type": "gdbtarget",
             "request": "attach",
-            "cwd": "${workspaceFolder}/Programs/Aufgabe2",
-            "program": "out/Aufgabe2/ITSboard/Debug/Aufgabe2.axf",
+            "cwd": "${workspaceFolder}/Programs/Aufgabe3",
+            "program": "out/Aufgabe3/ITSboard/Debug/Aufgabe3.axf",
             "gdb": "arm-none-eabi-gdb",
             "initCommands": [
                 ""

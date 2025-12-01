@@ -1,4 +1,4 @@
-# Install script for directory: C:/TI_Labor/GSy/ITS-BRD-VSC/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard
+# Install script for directory: D:/GSWS/ITS-BRD-VSC/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/TI_Labor/GSy/ITS-BRD-VSC/Programs/Aufgabe1/tmp/1/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "D:/GSWS/ITS-BRD-VSC/Programs/Aufgabe1/tmp/1/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

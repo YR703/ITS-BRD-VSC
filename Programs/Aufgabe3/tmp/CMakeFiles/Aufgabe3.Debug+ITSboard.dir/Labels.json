@@ -1,0 +1,52 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "D:/GSWS/ITS-BRD-VSC/Programs/Aufgabe3/tmp/CMakeFiles/Aufgabe3.Debug+ITSboard"
+		},
+		{
+			"file" : "D:/GSWS/ITS-BRD-VSC/Programs/Aufgabe3/tmp/CMakeFiles/Aufgabe3.Debug+ITSboard.rule"
+		},
+		{
+			"file" : "D:/GSWS/ITS-BRD-VSC/Programs/Aufgabe3/tmp/CMakeFiles/Aufgabe3.Debug+ITSboard-complete.rule"
+		},
+		{
+			"file" : "D:/GSWS/ITS-BRD-VSC/Programs/Aufgabe3/tmp/Aufgabe3.Debug+ITSboard/src/Aufgabe3.Debug+ITSboard-stamp/Aufgabe3.Debug+ITSboard-build.rule"
+		},
+		{
+			"file" : "D:/GSWS/ITS-BRD-VSC/Programs/Aufgabe3/tmp/Aufgabe3.Debug+ITSboard/src/Aufgabe3.Debug+ITSboard-stamp/Aufgabe3.Debug+ITSboard-configure.rule"
+		},
+		{
+			"file" : "D:/GSWS/ITS-BRD-VSC/Programs/Aufgabe3/tmp/Aufgabe3.Debug+ITSboard/src/Aufgabe3.Debug+ITSboard-stamp/Aufgabe3.Debug+ITSboard-database.rule"
+		},
+		{
+			"file" : "D:/GSWS/ITS-BRD-VSC/Programs/Aufgabe3/tmp/Aufgabe3.Debug+ITSboard/src/Aufgabe3.Debug+ITSboard-stamp/Aufgabe3.Debug+ITSboard-download.rule"
+		},
+		{
+			"file" : "D:/GSWS/ITS-BRD-VSC/Programs/Aufgabe3/tmp/Aufgabe3.Debug+ITSboard/src/Aufgabe3.Debug+ITSboard-stamp/Aufgabe3.Debug+ITSboard-executes.rule"
+		},
+		{
+			"file" : "D:/GSWS/ITS-BRD-VSC/Programs/Aufgabe3/tmp/Aufgabe3.Debug+ITSboard/src/Aufgabe3.Debug+ITSboard-stamp/Aufgabe3.Debug+ITSboard-install.rule"
+		},
+		{
+			"file" : "D:/GSWS/ITS-BRD-VSC/Programs/Aufgabe3/tmp/Aufgabe3.Debug+ITSboard/src/Aufgabe3.Debug+ITSboard-stamp/Aufgabe3.Debug+ITSboard-mkdir.rule"
+		},
+		{
+			"file" : "D:/GSWS/ITS-BRD-VSC/Programs/Aufgabe3/tmp/Aufgabe3.Debug+ITSboard/src/Aufgabe3.Debug+ITSboard-stamp/Aufgabe3.Debug+ITSboard-patch.rule"
+		},
+		{
+			"file" : "D:/GSWS/ITS-BRD-VSC/Programs/Aufgabe3/tmp/Aufgabe3.Debug+ITSboard/src/Aufgabe3.Debug+ITSboard-stamp/Aufgabe3.Debug+ITSboard-test.rule"
+		},
+		{
+			"file" : "D:/GSWS/ITS-BRD-VSC/Programs/Aufgabe3/tmp/Aufgabe3.Debug+ITSboard/src/Aufgabe3.Debug+ITSboard-stamp/Aufgabe3.Debug+ITSboard-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"Aufgabe3.Debug+ITSboard"
+		],
+		"name" : "Aufgabe3.Debug+ITSboard"
+	}
+}
