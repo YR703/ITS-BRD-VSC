@@ -1,10 +1,11 @@
 #ifndef BMP_READER_H
 #define BMP_READER_H
 
+#include <stdint.h>
 #include "BMP_types.h"
-#include "MS_basetypes.h"
 
-// Main function to process a BMP file from UART
-void bmp_read_and_draw(void);
+int bmp_start(BITMAPFILEHEADER *fh, BITMAPINFOHEADER *ih, RGBQUAD *pal);
+int bmp_read_row(uint8_t *row, int width);
+void bmp_reset(void);
 
 #endif

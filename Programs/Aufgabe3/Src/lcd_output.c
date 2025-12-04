@@ -1,70 +1,30 @@
-/**
- * Teilaufgabe B – Faster LCD Output (line buffering)
- *
- * We collect one full LCD line (row of pixels) in lineBuffer[]
- * and then send it all at once to the LCD using GUI_WriteLine().
- *
- * This is MUCH faster than drawing pixel by pixel.
- */
-
 #include "lcd_output.h"
-#include "LCD_GUI.h"        // GUI_WriteLine()
-#include "MS_basetypes.h"
-#include "lcd.h"
+#include "LCD_GUI.h"
 
-// Maximum width of the LCD (problem statement)
-#define LCD_WIDTH   480
-
-// Static line buffer
-static unsigned short lineBuffer[LCD_WIDTH];
-
-// Track the current line we are filling
-static int currentLineY = 0;
-
-
-/**
- * @brief Start drawing a new line (row Y on the LCD)
- */
-void lcd_start_new_line(int y)
+uint16_t rgb_to_16(RGBQUAD c)
 {
-    currentLineY = y;
-
-    // Optional: clear buffer (not needed, but nice for beginners)
-    for (int i = 0; i < LCD_WIDTH; i++)
-    {
-        lineBuffer[i] = 0;
-    }
+    int r = c.rgbRed >> 3;
+    int g = c.rgbGreen >> 2;
+    int b = c.rgbBlue >> 3;
+    return (r << 11) | (g << 5) | b;
 }
 
-
-/**
- * @brief Put one pixel into our line buffer
- * @param x     X position (0..479)
- * @param color Color in RGB565 format
- */
-void lcd_set_pixel_in_line(int x, unsigned short color)
+void lcd_draw_pixel(int x, int y, uint8_t idx, RGBQUAD *pal)
 {
-    if (x < 0 || x >= LCD_WIDTH)
-        return;     // out of bounds → ignore
+    uint16_t col = rgb_to_16(pal[idx]);
 
-    lineBuffer[x] = color;
+    Coordinate crd;
+    crd.x = x;
+    crd.y = y;
+
+    GUI_drawPoint(crd, col, DOT_PIXEL_1X1, DOT_FILL_AROUND);
 }
 
-
-/**
- * @brief Send the whole line to the LCD at once.
- * @param y     Y coordinate
- * @param width Number of valid pixels in the line
- */
-void lcd_write_line(int y, int width)
+void lcd_draw_row(int x, int y, uint16_t *buf, int w)
 {
-    if (width < 1) return;
-    if (width > LCD_WIDTH) width = LCD_WIDTH;
+    Coordinate crd;
+    crd.x = x;
+    crd.y = y;
 
-    Coordinate pos;
-    pos.x = 0;
-    pos.y = y;
-
-    // GUI_WriteLine draws one full row of pixels fast
-    GUI_WriteLine(pos, width, lineBuffer);
+    GUI_WriteLine(crd, w, buf);
 }

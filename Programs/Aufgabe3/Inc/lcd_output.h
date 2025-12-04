@@ -1,11 +1,11 @@
 #ifndef LCD_OUTPUT_H
 #define LCD_OUTPUT_H
 
-#include "MS_basetypes.h"
+#include <stdint.h>
+#include "BMP_types.h"
 
-// Teilaufgabe B: faster line-buffer writing
-void lcd_start_new_line(int y);
-void lcd_set_pixel_in_line(int x, unsigned short color);
-void lcd_write_line(int y, int width);
+uint16_t rgb_to_16(RGBQUAD c);
+void lcd_draw_pixel(int x, int y, uint8_t idx, RGBQUAD *pal);
+void lcd_draw_row(int x, int y, uint16_t *buf, int w);
 
 #endif
