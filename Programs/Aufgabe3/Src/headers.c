@@ -8,7 +8,7 @@ static BITMAPFILEHEADER fileHeader;
 static BITMAPINFOHEADER infoHeader;
 static bool validHeaders   = false;
 
-static int basicChecks(PBITMAPFILEHEADER  headerP, PBITMAPINFOHEADER infoP){
+ int basicChecks(PBITMAPFILEHEADER  headerP, PBITMAPINFOHEADER infoP){
    if (NULL != headerP){
       RETURN_NOK_ON_ERR(headerP->bfType != BMP_SIGNATURE, "basisChecks: wrong signature.");
       RETURN_NOK_ON_ERR(headerP->bfOffBits >= headerP->bfSize, "basisChecks: bfOffBits points out of BMP file.");

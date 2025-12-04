@@ -329,6 +329,24 @@ build:
       files:
         - file: ../../../../Src/main.c
           category: sourceC
+        - file: ../../../../Src/errorhandler.c
+          category: sourceC
+        - file: ../../../../Src/bmp_reader.c
+          category: sourceC
+        - file: ../../../../Src/gpio.c
+          category: sourceC
+        - file: ../../../../Src/headers.c
+          category: sourceC
+        - file: ../../../../Src/input.c
+          category: sourceC
+        - file: ../../../../Src/lcd_output.c
+          category: sourceC
+        - file: ../../../../Src/palette.c
+          category: sourceC
+        - file: ../../../../Src/rle_decoder.c
+          category: sourceC
+        - file: ../../../../Src/scaler.c
+          category: sourceC
   constructed-files:
     - file: ../../../../RTE/_Debug_ITSboard/RTE_Components.h
       category: header

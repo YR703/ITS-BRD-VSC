@@ -178,7 +178,15 @@ project:
     - group: Program/User/Src
       files:
         - file: Src/main.c
-
+        - file: Src/errorhandler.c
+        - file: Src/bmp_reader.c
+        - file: Src/gpio.c
+        - file: Src/headers.c
+        - file: Src/input.c
+        - file: Src/lcd_output.c
+        - file: Src/palette.c
+        - file: Src/rle_decoder.c
+        - file: Src/scaler.c
 
   components:
     - component: ARM::CMSIS:CORE

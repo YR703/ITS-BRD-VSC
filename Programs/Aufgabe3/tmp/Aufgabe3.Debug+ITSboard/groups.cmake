@@ -205,6 +205,15 @@ target_link_libraries(Group_Program_User_Inc_ABSTRACTIONS INTERFACE
 # group Program/User/Src
 add_library(Group_Program_User_Src OBJECT
   "${SOLUTION_ROOT}/Src/main.c"
+  "${SOLUTION_ROOT}/Src/errorhandler.c"
+  "${SOLUTION_ROOT}/Src/bmp_reader.c"
+  "${SOLUTION_ROOT}/Src/gpio.c"
+  "${SOLUTION_ROOT}/Src/headers.c"
+  "${SOLUTION_ROOT}/Src/input.c"
+  "${SOLUTION_ROOT}/Src/lcd_output.c"
+  "${SOLUTION_ROOT}/Src/palette.c"
+  "${SOLUTION_ROOT}/Src/rle_decoder.c"
+  "${SOLUTION_ROOT}/Src/scaler.c"
 )
 target_include_directories(Group_Program_User_Src PUBLIC
   $<TARGET_PROPERTY:${CONTEXT},INTERFACE_INCLUDE_DIRECTORIES>

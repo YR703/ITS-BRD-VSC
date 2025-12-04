@@ -8,5 +8,7 @@ extern int readHeaders(void);
 extern int getFileHeader(BITMAPFILEHEADER *h);
 
 extern int getInfoHeader(BITMAPINFOHEADER *h);
+
+int basicChecks(PBITMAPFILEHEADER headerP, PBITMAPINFOHEADER infoP);
 #endif
 // EOF
