@@ -1,16 +1,6 @@
 # Target labels
  Aufgabe1.Debug+ITSboard
 # Source files and their labels
-<<<<<<< Updated upstream
-C:/Users/infwtx851/Downloads/ITS-BRD-VSC-testing/Programs/Aufgabe1/tmp/CMakeFiles/Aufgabe1.Debug+ITSboard-database
-C:/Users/infwtx851/Downloads/ITS-BRD-VSC-testing/Programs/Aufgabe1/tmp/CMakeFiles/Aufgabe1.Debug+ITSboard-database.rule
-C:/Users/infwtx851/Downloads/ITS-BRD-VSC-testing/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-database.rule
-C:/Users/infwtx851/Downloads/ITS-BRD-VSC-testing/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-configure.rule
-C:/Users/infwtx851/Downloads/ITS-BRD-VSC-testing/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-patch.rule
-C:/Users/infwtx851/Downloads/ITS-BRD-VSC-testing/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-update.rule
-C:/Users/infwtx851/Downloads/ITS-BRD-VSC-testing/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-download.rule
-C:/Users/infwtx851/Downloads/ITS-BRD-VSC-testing/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-mkdir.rule
-=======
 C:/wer/ITS-BRD-VSC/Programs/Aufgabe1/tmp/CMakeFiles/Aufgabe1.Debug+ITSboard-database
 C:/wer/ITS-BRD-VSC/Programs/Aufgabe1/tmp/CMakeFiles/Aufgabe1.Debug+ITSboard-database.rule
 C:/wer/ITS-BRD-VSC/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-database.rule
@@ -19,4 +9,3 @@ C:/wer/ITS-BRD-VSC/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.De
 C:/wer/ITS-BRD-VSC/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-update.rule
 C:/wer/ITS-BRD-VSC/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-download.rule
 C:/wer/ITS-BRD-VSC/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-mkdir.rule
->>>>>>> Stashed changes

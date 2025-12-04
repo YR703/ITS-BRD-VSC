@@ -1,19 +1,11 @@
 
 cmake_minimum_required(VERSION 3.15)
 
-<<<<<<< Updated upstream
-set(command "C:/Users/infwtx851/.vcpkg/artifacts/2139c4c6/tools.kitware.cmake/3.28.4/bin/cmake.exe;-G;Ninja;-S;C:/Users/infwtx851/Downloads/ITS-BRD-VSC-testing/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard;-B;C:/Users/infwtx851/Downloads/ITS-BRD-VSC-testing/Programs/Aufgabe1/tmp/1;-DSOLUTION_ROOT=C:/Users/infwtx851/Downloads/ITS-BRD-VSC-testing/Programs/Aufgabe1;-DCMSIS_PACK_ROOT=C:/Users/infwtx851/AppData/Local/arm/packs;-DCMSIS_COMPILER_ROOT=C:/Users/infwtx851/.vcpkg/artifacts/2139c4c6/tools.open.cmsis.pack.cmsis.toolbox/2.11.0/etc")
-set(log_merged "")
-set(log_output_on_failure "ON")
-set(stdout_log "C:/Users/infwtx851/Downloads/ITS-BRD-VSC-testing/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-configure-out.log")
-set(stderr_log "C:/Users/infwtx851/Downloads/ITS-BRD-VSC-testing/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-configure-err.log")
-=======
 set(command "C:/Users/youse/.vcpkg/artifacts/2139c4c6/tools.kitware.cmake/3.28.4/bin/cmake.exe;-G;Ninja;-S;C:/wer/ITS-BRD-VSC/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard;-B;C:/wer/ITS-BRD-VSC/Programs/Aufgabe1/tmp/1;-DSOLUTION_ROOT=C:/wer/ITS-BRD-VSC/Programs/Aufgabe1;-DCMSIS_PACK_ROOT=C:/Users/youse/AppData/Local/Arm/Packs;-DCMSIS_COMPILER_ROOT=C:/Users/youse/.vcpkg/artifacts/2139c4c6/tools.open.cmsis.pack.cmsis.toolbox/2.12.0/etc")
 set(log_merged "")
 set(log_output_on_failure "ON")
 set(stdout_log "C:/wer/ITS-BRD-VSC/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-configure-out.log")
 set(stderr_log "C:/wer/ITS-BRD-VSC/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-configure-err.log")
->>>>>>> Stashed changes
 execute_process(
   COMMAND ${command}
   RESULT_VARIABLE result
@@ -39,11 +31,7 @@ if(result)
   if (${log_merged})
     set(msg "${msg}\nSee also\n  ${stderr_log}")
   else()
-<<<<<<< Updated upstream
-    set(msg "${msg}\nSee also\n  C:/Users/infwtx851/Downloads/ITS-BRD-VSC-testing/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-configure-*.log")
-=======
     set(msg "${msg}\nSee also\n  C:/wer/ITS-BRD-VSC/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-configure-*.log")
->>>>>>> Stashed changes
   endif()
   if (${log_output_on_failure})
     message(SEND_ERROR "${msg}")
@@ -62,11 +50,7 @@ if(result)
   endif()
 else()
   if(NOT "Ninja" MATCHES "Ninja")
-<<<<<<< Updated upstream
-    set(msg "Aufgabe1.Debug+ITSboard configure command succeeded.  See also C:/Users/infwtx851/Downloads/ITS-BRD-VSC-testing/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-configure-*.log")
-=======
     set(msg "Aufgabe1.Debug+ITSboard configure command succeeded.  See also C:/wer/ITS-BRD-VSC/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-configure-*.log")
->>>>>>> Stashed changes
     message(STATUS "${msg}")
   endif()
 endif()

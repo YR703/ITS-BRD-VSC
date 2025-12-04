@@ -2,45 +2,6 @@
 	"sources" : 
 	[
 		{
-<<<<<<< Updated upstream
-			"file" : "C:/Users/infwtx851/Downloads/ITS-BRD-VSC-testing/Programs/Aufgabe1/tmp/CMakeFiles/Aufgabe1.Debug+ITSboard"
-		},
-		{
-			"file" : "C:/Users/infwtx851/Downloads/ITS-BRD-VSC-testing/Programs/Aufgabe1/tmp/CMakeFiles/Aufgabe1.Debug+ITSboard.rule"
-		},
-		{
-			"file" : "C:/Users/infwtx851/Downloads/ITS-BRD-VSC-testing/Programs/Aufgabe1/tmp/CMakeFiles/Aufgabe1.Debug+ITSboard-complete.rule"
-		},
-		{
-			"file" : "C:/Users/infwtx851/Downloads/ITS-BRD-VSC-testing/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-build.rule"
-		},
-		{
-			"file" : "C:/Users/infwtx851/Downloads/ITS-BRD-VSC-testing/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-configure.rule"
-		},
-		{
-			"file" : "C:/Users/infwtx851/Downloads/ITS-BRD-VSC-testing/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-database.rule"
-		},
-		{
-			"file" : "C:/Users/infwtx851/Downloads/ITS-BRD-VSC-testing/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-download.rule"
-		},
-		{
-			"file" : "C:/Users/infwtx851/Downloads/ITS-BRD-VSC-testing/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-executes.rule"
-		},
-		{
-			"file" : "C:/Users/infwtx851/Downloads/ITS-BRD-VSC-testing/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-install.rule"
-		},
-		{
-			"file" : "C:/Users/infwtx851/Downloads/ITS-BRD-VSC-testing/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-mkdir.rule"
-		},
-		{
-			"file" : "C:/Users/infwtx851/Downloads/ITS-BRD-VSC-testing/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-patch.rule"
-		},
-		{
-			"file" : "C:/Users/infwtx851/Downloads/ITS-BRD-VSC-testing/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-test.rule"
-		},
-		{
-			"file" : "C:/Users/infwtx851/Downloads/ITS-BRD-VSC-testing/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-update.rule"
-=======
 			"file" : "C:/wer/ITS-BRD-VSC/Programs/Aufgabe1/tmp/CMakeFiles/Aufgabe1.Debug+ITSboard"
 		},
 		{
@@ -78,7 +39,6 @@
 		},
 		{
 			"file" : "C:/wer/ITS-BRD-VSC/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard/src/Aufgabe1.Debug+ITSboard-stamp/Aufgabe1.Debug+ITSboard-update.rule"
->>>>>>> Stashed changes
 		}
 	],
 	"target" : 

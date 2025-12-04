@@ -4,10 +4,6 @@
 
 method=source_dir
 command=
-<<<<<<< Updated upstream
-source_dir=C:/Users/infwtx851/Downloads/ITS-BRD-VSC-testing/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard
-=======
 source_dir=C:/wer/ITS-BRD-VSC/Programs/Aufgabe1/tmp/Aufgabe1.Debug+ITSboard
->>>>>>> Stashed changes
 work_dir=
 
