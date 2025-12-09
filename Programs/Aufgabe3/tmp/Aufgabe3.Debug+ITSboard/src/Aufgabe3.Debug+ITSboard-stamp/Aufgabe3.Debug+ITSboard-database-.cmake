@@ -1,7 +1,7 @@
 
-cmake_minimum_required(VERSION 3.15)
+cmake_minimum_required(VERSION ${CMAKE_VERSION}) # this file comes with cmake
 
-set(command "C:/Users/Abdullah Ahmed/.vcpkg/artifacts/2139c4c6/tools.kitware.cmake/3.28.4/bin/cmake.exe;--build;D:/GSWS/ITS-BRD-VSC/Programs/Aufgabe3/tmp/1;--target;database")
+set(command "C:/Users/Abdullah Ahmed/.vcpkg/artifacts/2139c4c6/tools.kitware.cmake/3.31.5/bin/cmake.exe;--build;D:/GSWS/ITS-BRD-VSC/Programs/Aufgabe3/tmp/1;--target;database")
 set(log_merged "")
 set(log_output_on_failure "ON")
 set(stdout_log "D:/GSWS/ITS-BRD-VSC/Programs/Aufgabe3/tmp/Aufgabe3.Debug+ITSboard/src/Aufgabe3.Debug+ITSboard-stamp/Aufgabe3.Debug+ITSboard-database-out.log")

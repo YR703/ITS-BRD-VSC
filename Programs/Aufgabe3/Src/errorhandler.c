@@ -3,6 +3,7 @@
 #include "lcd.h"
 #include <stdio.h>
 
+
 #define BUF_SIZE     256
 static char buf[BUF_SIZE];
 
@@ -31,4 +32,15 @@ int printError(bool cnd, char *file, int line, char *msg, bool loopForEver) {
    }
    return EOK;
 }
+
+#include "LCD_GUI.h"
+#include "fontsFLASH.h"
+
+void lcdErrorMsg(const char *msg)
+{
+    GUI_clear(WHITE);
+    Coordinate tl = { 10, 10 };
+    GUI_disStr(tl, msg, &Font16, WHITE, RED);
+}
+
 // EOF

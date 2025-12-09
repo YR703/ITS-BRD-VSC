@@ -1,7 +1,7 @@
 
-cmake_minimum_required(VERSION 3.15)
+cmake_minimum_required(VERSION ${CMAKE_VERSION}) # this file comes with cmake
 
-set(command "C:/Users/Abdullah Ahmed/.vcpkg/artifacts/2139c4c6/tools.kitware.cmake/3.28.4/bin/cmake.exe;-G;Ninja;-S;D:/GSWS/ITS-BRD-VSC/Programs/Aufgabe3/tmp/Aufgabe3.Debug+ITSboard;-B;D:/GSWS/ITS-BRD-VSC/Programs/Aufgabe3/tmp/1;-DSOLUTION_ROOT=D:/GSWS/ITS-BRD-VSC/Programs/Aufgabe3;-DCMSIS_PACK_ROOT=C:/Users/Abdullah Ahmed/AppData/Local/Arm/Packs;-DCMSIS_COMPILER_ROOT=C:/Users/Abdullah Ahmed/.vcpkg/artifacts/2139c4c6/tools.open.cmsis.pack.cmsis.toolbox/2.12.0/etc")
+set(command "C:/Users/Abdullah Ahmed/.vcpkg/artifacts/2139c4c6/tools.kitware.cmake/3.31.5/bin/cmake.exe;-G;Ninja;-S;D:/GSWS/ITS-BRD-VSC/Programs/Aufgabe3/tmp/Aufgabe3.Debug+ITSboard;-B;D:/GSWS/ITS-BRD-VSC/Programs/Aufgabe3/tmp/1;-DSOLUTION_ROOT=D:/GSWS/ITS-BRD-VSC/Programs/Aufgabe3;-DCMSIS_PACK_ROOT=C:/Users/Abdullah Ahmed/AppData/Local/Arm/Packs;-DCMSIS_COMPILER_ROOT=C:/Users/Abdullah Ahmed/.vcpkg/artifacts/2139c4c6/tools.open.cmsis.pack.cmsis.toolbox/2.12.0/etc")
 set(log_merged "")
 set(log_output_on_failure "ON")
 set(stdout_log "D:/GSWS/ITS-BRD-VSC/Programs/Aufgabe3/tmp/Aufgabe3.Debug+ITSboard/src/Aufgabe3.Debug+ITSboard-stamp/Aufgabe3.Debug+ITSboard-configure-out.log")

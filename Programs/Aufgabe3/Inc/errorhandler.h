@@ -26,6 +26,9 @@ extern int printError(bool cnd, char *file, int line, char *msg, bool loopForEve
 #define RETURN_NOK_ON_ERR(cnd,msg) {if (NOK == ERR_HANDLER(cnd,msg)){return NOK;}}
 #define RAISE_NOK(fcall) {if (NOK == (fcall)){return NOK;}}
 
+void lcdErrorMsg(const char *msg);
+
+
 #endif
 // EOF
 

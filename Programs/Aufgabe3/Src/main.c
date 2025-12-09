@@ -1,25 +1,10 @@
-/**
-  ******************************************************************************
-  * @file    main.c
-  * @author  Franz Korf
-  * @brief   Kleines Testprogramm fuer neu erstelle Fonts.
-  ******************************************************************************
-  */
-/* Includes ------------------------------------------------------------------*/
+#include <stdlib.h>
 
-#include "stm32f4xx_hal.h"
 #include "init.h"
-#include "delay.h"
 #include "LCD_GUI.h"
 #include "LCD_Touch.h"
-#include "lcd.h"
 #include "fontsFLASH.h"
 
-#include <stdio.h>
-#include <stdbool.h>
-
-// Aufgabe 3 includes
-#include <stdlib.h>
 #include "input.h"
 #include "headers.h"
 #include "bmp_reader.h"
@@ -28,44 +13,52 @@
 #include "rle_decoder.h"
 #include "gpio.h"
 #include "errorhandler.h"
-#include "LCD_GUI.h"
 
 #define S0_PORT GPIOF
 #define S0_PIN  0
 
+/* Simple button check */
 int button_pressed()
 {
     return readGPIOPin(S0_PORT, S0_PIN) == 0;
-
 }
-
-
 
 int main(void)
 {
-    initITSboard();                     // REQUIRED or LCD stays black
-    GUI_init(DEFAULT_BRIGHTNESS);       // Turn on LCD
-    TP_Init(false);                     // Touch (safe to include)
+    /* Initialize board and LCD */
+    initITSboard();
+    GUI_init(DEFAULT_BRIGHTNESS);
+    TP_Init(false);
 
     if (!checkVersionFlashFonts())
-    LOOP_ON_ERR(1, "Flash font version mismatch");
+        LOOP_ON_ERR(true, "Flash font mismatch");
 
-
-    initInput();                        // UART protocol init
-    GUI_clear(WHITE);                   // Clear display
+    initInput();
+    GUI_clear(WHITE);
 
     while (1)
     {
-        while (!button_pressed());      // Wait for S0
+        /* Wait for button press */
+        while (!button_pressed());
+        while (button_pressed());
 
+        /* NEXT FILE */
         openNextFile();
+
+        /* FIX 1 — LCD löschen bevor ein neues Bild kommt */
+        GUI_clear(WHITE);
 
         BITMAPFILEHEADER fh;
         BITMAPINFOHEADER ih;
         RGBQUAD *pal = malloc(256 * sizeof(RGBQUAD));
 
+        /* BMP Reader with full error handling */
         if (bmp_start(&fh, &ih, pal) != EOK)
         {
+            /* FEHLER wurde bereits angezeigt */
+            /* nach S0 drücken → weitermachen */
+            while (!button_pressed());
+            while (button_pressed());
             free(pal);
             continue;
         }
@@ -75,27 +68,43 @@ int main(void)
 
         uint8_t *row = malloc(w);
 
+        /* CASE 1: Fits into LCD (NO SCALING) */
         if (w <= 480 && h <= 320)
         {
+            /* BOTTOM → TOP zeichnen (dein korrektes Verhalten) */
             for (int y = h - 1; y >= 0; y--)
             {
-                bmp_read_row(row, w);
+                int res = bmp_read_row(row, w);
+                if (res < 0)
+                {
+                    lcdErrorMsg("Fehler: Daten fehlerhaft");
+                    break;
+                }
 
                 static uint16_t buf[480];
                 for (int i = 0; i < w; i++)
                     buf[i] = rgb_to_16(pal[row[i]]);
-                    
+
                 lcd_draw_row(0, y, buf, w);
             }
         }
         else
         {
+            /* CASE 2: Needs scaling */
             uint8_t *rows[5];
             for (int i = 0; i < 5; i++)
                 rows[i] = malloc(w);
 
-            for (int i = 4; i >= 0; i--)
-                bmp_read_row(rows[i], w);
+            /* IMPORTANT FIX:
+               Reihenfolge top-down einlesen, NICHT invertiert */
+            for (int i = 0; i < 5; i++)
+            {
+                if (bmp_read_row(rows[i], w) < 0)
+                {
+                    lcdErrorMsg("Fehler: RLE Stream");
+                    break;
+                }
+            }
 
             scale_image(rows, w, h, pal);
 
@@ -106,6 +115,9 @@ int main(void)
         free(row);
         free(pal);
 
-        while (button_pressed());    // Wait until button released
+        /* Button must be released before next iteration */
+        while (button_pressed());
     }
+
+    return 0;
 }
