@@ -126,17 +126,20 @@ int bmp_start(BITMAPFILEHEADER *fh, BITMAPINFOHEADER *ih, RGBQUAD *pal)
 }
  
 // -----------------------------------------------------------------------
-// RLE8 DECODER
+// RLE8 DECODER (KORRIGIERT)
 // -----------------------------------------------------------------------
 static int read_row_rle(uint8_t *row, int width) {
-    // Zeile löschen (wichtig, da RLE springen kann)
-    for(int i=0; i<width; i++) row[i] = 0;
+    // Zeile vorab mit 0 init (optional, aber sauberer bei Transparenz/Jumps)
+    // Man könnte auch mit Hintergrundfarbe füllen.
+    // memset(row, 0, width);
  
-    if (g_rle_eof) return 0; // Bild ist schon zu Ende
+    if (g_rle_eof) return 0;
  
     int x = 0;
    
-    while (x < width) {
+    // WICHTIG: Endlosschleife! Wir brechen erst ab, wenn das RLE-Kommando
+    // sagt "Zeile zu Ende", NICHT wenn x >= width ist.
+    while (1) {
         int b1 = nextChar();
         int b2 = nextChar();
  
@@ -144,19 +147,21 @@ static int read_row_rle(uint8_t *row, int width) {
  
         if (b1 > 0) {
             // --- ENCODED MODE ---
-            // b1 = Anzahl, b2 = Index
             int count = b1;
             int colorIndex = b2;
            
             for (int i = 0; i < count; i++) {
-                if (x < width) row[x] = (uint8_t)colorIndex;
-                x++;
+                // Nur schreiben, wenn wir noch im Bildbereich sind
+                if (x < width) {
+                    row[x] = (uint8_t)colorIndex;
+                }
+                x++; // x zählen wir trotzdem hoch, damit wir wissen, wo wir sind
             }
         } else {
             // --- ESCAPE MODE (b1 == 0) ---
             if (b2 == 0) {
-                // End of Line
-                return 0; // Zeile fertig
+                // End of Line: DAS ist der einzige korrekte Ausstieg für eine Zeile
+                return 0;
             }
             else if (b2 == 1) {
                 // End of Bitmap
@@ -168,33 +173,31 @@ static int read_row_rle(uint8_t *row, int width) {
                 int dx = nextChar();
                 int dy = nextChar();
                
+                // Cursor verschieben (Pixel werden übersprungen -> behalten alten Wert)
                 x += dx;
-                // Wenn dy > 0, überspringen wir Zeilen.
-                // In dieser einfachen Implementierung ignorieren wir dy > 0 Logik
-                // und hoffen, dass der Scaler damit klarkommt,
-                // oder dass dy meistens 0 ist innerhalb einer Zeile.
-                if (dy > 0) {
-                     // Hack: Wir brechen die Zeile ab.
-                     // Der Algorithmus muss beim nächsten Aufruf weiterlesen.
-                     return 0;
-                }
+               
+                // Hinweis: dy > 0 würde eigentlich bedeuten, dass wir Zeilen überspringen.
+                // In dieser einfachen Implementierung ignorieren wir das vertikale Springen,
+                // da unsere Main-Loop zeilenweise anfordert.
+                // Ein korrektes Handling müsste hier 'dy' Zeilen Puffer überspringen.
             }
             else {
-                // Absolute Mode: b2 = Anzahl Bytes unkomprimiert
+                // Absolute Mode
                 int count = b2;
                 for (int i = 0; i < count; i++) {
                     int val = nextChar();
-                    if (x < width) row[x] = (uint8_t)val;
+                    if (x < width) {
+                        row[x] = (uint8_t)val;
+                    }
                     x++;
                 }
-                // Alignment Padding: Muss auf Word-Grenze liegen
+                // Alignment Padding (muss auf Word-Grenze liegen)
                 if (count % 2 != 0) {
-                    nextChar(); // Padding Byte lesen und wegwerfen
+                    nextChar();
                 }
             }
         }
     }
-    return 0;
 }
  
 // -----------------------------------------------------------------------
@@ -208,12 +211,20 @@ static int read_row_raw(uint8_t *row, int width) {
         row[i] = (uint8_t)c;
     }
  
-    // 2. Padding am Zeilenende überspringen
-    // Formel: (4 - (n * 1) % 4) % 4
-    int padding = (4 - (width % 4)) % 4;
+    // 2. Padding berechnen
+    // Bei 8 Bit: 1 Pixel = 1 Byte.
+    // Zeilenlänge muss durch 4 teilbar sein.
+    int bytesPerRow = width;
+    int padding = 0;
    
+    // Einfache Modulo Logik
+    if (bytesPerRow % 4 != 0) {
+        padding = 4 - (bytesPerRow % 4);
+    }
+   
+    // Padding Bytes lesen und verwerfen
     for (int i = 0; i < padding; i++) {
-        nextChar();
+        if (nextChar() == EOF) return -1;
     }
     return 0;
 }
