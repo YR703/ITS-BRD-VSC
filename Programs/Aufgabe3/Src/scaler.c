@@ -1,46 +1,80 @@
 #include "scaler.h"
 #include "lcd_output.h"
-#include <math.h>
-
-/*
- * rows: 5 Zeilen aus bmp_read_row()
- * srcW = Originalbreite
- * srcH = Originalhöhe
- * pal = Palette für Farbwerte
- *
- * Wir skalieren nur VERTIKAL über das 5-Zeilen-Fenster,
- * da die Aufgabe 3 genau dieses Verfahren fordert.
- */
-
-void scale_image(uint8_t **rows, int srcW, int srcH, RGBQUAD *pal)
+#include <math.h>     // Wichtig für floorf, ceilf
+#include <stdint.h>   // Wichtig für uint8_t, uint16_t
+#include <stddef.h>   // Für NULL
+ 
+void scale_line_box_fit(uint16_t *outBuf, uint8_t **inputRows, int rowCount,
+                        int srcW, float scale, int offsetX, int displayImageWidth,
+                        RGBQUAD *pal)
 {
-    float scaleX = (float)srcW / 480.0f;
-    float scaleY = (float)srcH / 320.0f;
-
-    float s = (scaleX > scaleY) ? scaleX : scaleY;
-
-    int boxH = (int)ceilf(s);
-    int boxW = (int)ceilf(s);
-
-    static uint16_t out[480];
-
-    for (int y = 0; y < 320; y++)
+    // Loop über alle 480 Pixel der LCD-Zeile
+    for (int destX = 0; destX < 480; destX++)
     {
-        int srcY = (int)(y * s);
-
-        int rowIndex = srcY % 5;   // Nur 5 rows verfügbar!
-
-        uint8_t *r = rows[rowIndex];
-
-        for (int x = 0; x < 480; x++)
+        // 1. Prüfen: Sind wir im Bildbereich?
+        if (destX >= offsetX && destX < (offsetX + displayImageWidth))
         {
-            int srcX = (int)(x * s);
-            if (srcX >= srcW) srcX = srcW - 1;
-
-            RGBQUAD c = pal[r[srcX]];
-            out[x] = rgb_to_16(c);
+            // 2. Inverse Mapping: Welche X-Position im Quellbild?
+            // (destX - offsetX) ist die Koordinate relativ zum Bildstart links
+            float srcX_float = (float)(destX - offsetX) / scale;
+           
+            int srcX_start = (int)floorf(srcX_float);
+           
+            // Box-Breite
+            int boxWidth = (int)ceilf(1.0f / scale);
+            if (boxWidth < 1) boxWidth = 1;
+ 
+            int srcX_end = srcX_start + boxWidth;
+ 
+            // Randbegrenzung
+            if (srcX_end > srcW) srcX_end = srcW;
+            if (srcX_start >= srcW) srcX_start = srcW - 1;
+            if (srcX_start < 0) srcX_start = 0;
+ 
+            // 3. Box-Averaging (Farben summieren)
+            uint32_t rSum = 0;
+            uint32_t gSum = 0;
+            uint32_t bSum = 0;
+            int pixelCount = 0;
+ 
+            for (int r = 0; r < rowCount; r++)
+            {
+                uint8_t *currentRow = inputRows[r];
+                // Falls Pointer ungültig ist, überspringen
+                if (!currentRow) continue;
+ 
+                for (int sx = srcX_start; sx < srcX_end; sx++)
+                {
+                    uint8_t idx = currentRow[sx];
+                    RGBQUAD c = pal[idx];
+                   
+                    rSum += c.rgbRed;
+                    gSum += c.rgbGreen;
+                    bSum += c.rgbBlue;
+                    pixelCount++;
+                }
+            }
+ 
+            // 4. Durchschnitt bilden und konvertieren
+            if (pixelCount > 0)
+            {
+                RGBQUAD avg;
+                avg.rgbRed   = (uint8_t)(rSum / pixelCount);
+                avg.rgbGreen = (uint8_t)(gSum / pixelCount);
+                avg.rgbBlue  = (uint8_t)(bSum / pixelCount);
+                avg.rgbReserved = 0;
+ 
+                outBuf[destX] = rgb_to_16(avg);
+            }
+            else
+            {
+                outBuf[destX] = 0; // Schwarz
+            }
         }
-
-        lcd_draw_row(0, y, out, 480);
+        else
+        {
+            // Außerhalb des Bildes -> Schwarz (Letterboxing Balken)
+            outBuf[destX] = 0;
+        }
     }
 }

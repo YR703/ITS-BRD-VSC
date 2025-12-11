@@ -59,6 +59,10 @@
   "debug.hideSlowPreLaunchWarning": true,
   "debug.showInStatusBar": "never",
   "clangd.arguments": [
-    "--compile-commands-dir=d:\\GSWS\\ITS-BRD-VSC\\Programs\\Aufgabe3\\out\\Aufgabe3\\ITSboard\\Debug"
-  ]
+    "--compile-commands-dir=c:\\Users\\infwtx851\\GSWS\\ITS-BRD-VSC\\Programs\\Aufgabe3\\out\\Aufgabe3\\ITSboard\\Debug"
+  ],
+  "python.analysis.extraPaths": [
+    "c:\\Users\\infwtx851\\.vcpkg\\artifacts\\2139c4c6\\debuggers.arm.armdbg\\6.6.1\\sw\\osgi\\plugins\\com.arm.debug.interpreter.jython.api_6.6.1.202508041948"
+  ],
+  "cmake.sourceDirectory": "C:/Users/infwtx851/GSWS/ITS-BRD-VSC/stm32cubef4/Middlewares/Third_Party/mbedTLS/programs/test"
 }
