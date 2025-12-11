@@ -3,7 +3,7 @@
 <title>Static Call Graph - [C:\Users\infwtx851\GSWS\ITS-BRD-VSC\Programs\Aufgabe3\out\Aufgabe3\ITSboard\Debug\Aufgabe3.axf]</title></head>
 <body><HR>
 <H1>Static Call Graph for image C:\Users\infwtx851\GSWS\ITS-BRD-VSC\Programs\Aufgabe3\out\Aufgabe3\ITSboard\Debug\Aufgabe3.axf</H1><HR>
-<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6240002: Last Updated: Thu Dec 11 10:20:03 2025
+<BR><P>#&#060CALLGRAPH&#062# ARM Linker, 6240002: Last Updated: Thu Dec 11 10:48:14 2025
 <BR><P>
 <H3>Maximum Stack Usage =        856 bytes + Unknown(Cycles, Untraceable Function Pointers)</H3><H3>
 Call chain for Maximum Stack Depth:</H3>
@@ -1134,7 +1134,7 @@ Global Symbols
 </UL>
 
 <P><STRONG><a name="[f3]"></a>bmp_read_row</STRONG> (Thumb, 54 bytes, Stack size 24 bytes, bmp_reader.o(.text.bmp_read_row))
-<BR><BR>[Stack]<UL><LI>Max Depth = 560<LI>Call Chain = bmp_read_row &rArr; read_row_rle &rArr; nextChar &rArr; startNextByteBurst &rArr; printError &rArr; lcdPrintS &rArr; GUI_disStr &rArr; GUI_disChar &rArr; LCD_fillRectangleBW &rArr; LCD_setWindow &rArr; LCD_WriteParam &rArr; LCD_WriteParameters &rArr; SPI4W_Write_Byte &rArr; check_SPI_SR &rArr; LCDErrHandler &rArr; HAL_GPIO_Init
+<BR><BR>[Stack]<UL><LI>Max Depth = 552<LI>Call Chain = bmp_read_row &rArr; read_row_rle &rArr; nextChar &rArr; startNextByteBurst &rArr; printError &rArr; lcdPrintS &rArr; GUI_disStr &rArr; GUI_disChar &rArr; LCD_fillRectangleBW &rArr; LCD_setWindow &rArr; LCD_WriteParam &rArr; LCD_WriteParameters &rArr; SPI4W_Write_Byte &rArr; check_SPI_SR &rArr; LCDErrHandler &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[f5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;read_row_raw
 <LI><a href="#[f4]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;read_row_rle
@@ -1872,15 +1872,15 @@ Local Symbols
 <BR>[Called By]<UL><LI><a href="#[e5]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;USART_PowerControl
 </UL>
 
-<P><STRONG><a name="[f4]"></a>read_row_rle</STRONG> (Thumb, 376 bytes, Stack size 72 bytes, bmp_reader.o(.text.read_row_rle))
-<BR><BR>[Stack]<UL><LI>Max Depth = 536<LI>Call Chain = read_row_rle &rArr; nextChar &rArr; startNextByteBurst &rArr; printError &rArr; lcdPrintS &rArr; GUI_disStr &rArr; GUI_disChar &rArr; LCD_fillRectangleBW &rArr; LCD_setWindow &rArr; LCD_WriteParam &rArr; LCD_WriteParameters &rArr; SPI4W_Write_Byte &rArr; check_SPI_SR &rArr; LCDErrHandler &rArr; HAL_GPIO_Init
+<P><STRONG><a name="[f4]"></a>read_row_rle</STRONG> (Thumb, 310 bytes, Stack size 64 bytes, bmp_reader.o(.text.read_row_rle))
+<BR><BR>[Stack]<UL><LI>Max Depth = 528<LI>Call Chain = read_row_rle &rArr; nextChar &rArr; startNextByteBurst &rArr; printError &rArr; lcdPrintS &rArr; GUI_disStr &rArr; GUI_disChar &rArr; LCD_fillRectangleBW &rArr; LCD_setWindow &rArr; LCD_WriteParam &rArr; LCD_WriteParameters &rArr; SPI4W_Write_Byte &rArr; check_SPI_SR &rArr; LCDErrHandler &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nextChar
 </UL>
 <BR>[Called By]<UL><LI><a href="#[f3]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;bmp_read_row
 </UL>
 
-<P><STRONG><a name="[f5]"></a>read_row_raw</STRONG> (Thumb, 136 bytes, Stack size 40 bytes, bmp_reader.o(.text.read_row_raw))
+<P><STRONG><a name="[f5]"></a>read_row_raw</STRONG> (Thumb, 166 bytes, Stack size 40 bytes, bmp_reader.o(.text.read_row_raw))
 <BR><BR>[Stack]<UL><LI>Max Depth = 504<LI>Call Chain = read_row_raw &rArr; nextChar &rArr; startNextByteBurst &rArr; printError &rArr; lcdPrintS &rArr; GUI_disStr &rArr; GUI_disChar &rArr; LCD_fillRectangleBW &rArr; LCD_setWindow &rArr; LCD_WriteParam &rArr; LCD_WriteParameters &rArr; SPI4W_Write_Byte &rArr; check_SPI_SR &rArr; LCDErrHandler &rArr; HAL_GPIO_Init
 </UL>
 <BR>[Calls]<UL><LI><a href="#[8b]">&gt;&gt;</a>&nbsp;&nbsp;&nbsp;nextChar

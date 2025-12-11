@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <math.h>
 #include <string.h>
-#include <stdio.h>  // Wichtig für EOF
+#include <stdio.h>  
  
 // Projekt-Header
 #include "init.h"
@@ -29,6 +29,7 @@
 #define RING_BUFFER_SIZE 6
  
 // --- Statische Puffer (um Stack-Overflow zu vermeiden) ---
+// Diese Variablen liegen im BSS-Segment (RAM), nicht auf dem Stack
 static uint8_t rowBuffer[RING_BUFFER_SIZE][MAX_BMP_WIDTH];
 static uint8_t *scalerRows[RING_BUFFER_SIZE];
 static uint16_t outputLine[LCD_WIDTH];
@@ -55,8 +56,8 @@ int main(void)
     while (1)
     {
         // 1. Auf Startsignal warten (Datei öffnen)
-        while (!button_pressed()); // Optional: Warten auf Taster vor Start
-        while (button_pressed());
+        while (!button_pressed()); // Warten auf Taster vor Start
+        while (button_pressed());  // Entprellen / Warten auf Loslassen
        
         openNextFile();
         GUI_clear(BLACK);
@@ -64,18 +65,17 @@ int main(void)
         // 2. Variablen für Header anlegen
         BITMAPFILEHEADER fh;
         BITMAPINFOHEADER ih;
-        // Palette dynamisch allozieren (256 * 4 Bytes = 1KB)
-        RGBQUAD *pal = (RGBQUAD*)malloc(256 * sizeof(RGBQUAD));
- 
-        if (pal == NULL) {
-            lcdErrorMsg("RAM voll (Palette)");
-            continue;
-        }
+       
+        // ÄNDERUNG: Statisches Array statt malloc.
+        // Belegt festen Speicher (1KB) und verhindert Fragmentierung/Lecks.
+        static RGBQUAD pal[256];
  
         // 3. Header einlesen
-        // bmp_start setzt jetzt intern compression flags und liest die Palette
+        // bmp_start füllt nun das statische Array 'pal'
         if (bmp_start(&fh, &ih, pal) != EOK) {
-            free(pal);
+            // Kein free(pal) mehr nötig!
+           
+            // Warten, damit Fehlermeldung gelesen werden kann
             while (!button_pressed());
             while (button_pressed());
             continue;
@@ -87,7 +87,10 @@ int main(void)
         // Sicherheitscheck Breite
         if (srcW > MAX_BMP_WIDTH) {
             lcdErrorMsg("Bild zu breit!");
-            free(pal);
+            // Kein free(pal) mehr nötig!
+           
+            while (!button_pressed());
+            while (button_pressed());
             continue;
         }
  
@@ -100,7 +103,7 @@ int main(void)
         // Wähle den kleineren Faktor, damit das ganze Bild passt
         float scale = (scale_x < scale_y) ? scale_x : scale_y;
  
-        // Kein Upscaling (optional)
+        // Kein Upscaling (optional, verhindert Verpixelung bei kleinen Bildern)
         if (scale > 1.0f) scale = 1.0f;
  
         // Effektive Bildgröße auf dem Display
@@ -134,11 +137,12 @@ int main(void)
             if (endSrcRow > srcH) endSrcRow = srcH;
  
             // B. Ringpuffer nachladen
+            // Solange lesen, bis wir genug Zeilen für die Box-Berechnung haben
             while (rowsReadTotal < endSrcRow && bmpStatus == 0)
             {
                 uint8_t *bufPtr = rowBuffer[rowsReadTotal % RING_BUFFER_SIZE];
                
-                // Zeile einlesen
+                // Zeile einlesen (ruft RLE oder RAW Logik auf)
                 int res = bmp_read_row(bufPtr, srcW);
                 if (res != 0) {
                     bmpStatus = -1; // Abbruch markieren
@@ -160,15 +164,15 @@ int main(void)
             // D. Skalieren und Zeichnen
             if (validRows > 0)
             {
-                // Aufruf der Skalierungsfunktion (definiert in scaler.c)
+                // Aufruf der Skalierungsfunktion
                 scale_line_box_fit(outputLine, scalerRows, validRows,
                                    srcW, scale, offsetX, displayImageWidth, pal);
                
                 // Y-Position berechnen (BMP ist Bottom-Up!)
-                // Wir zeichnen von unten nach oben
+                // Wir zeichnen von unten nach oben auf das Display
                 int lcdY = (offsetY + displayImageHeight - 1) - i;
                
-                // Zeichnen (Ganze Breite 480px wird geschrieben)
+                // Zeichnen (Ganze Zeile wird geschrieben)
                 lcd_draw_row(0, lcdY, outputLine, LCD_WIDTH);
             }
         }
@@ -179,9 +183,7 @@ int main(void)
             rowsReadTotal++;
         }
  
-        free(pal);
- 
-        // Warten auf User
+        // Warten auf User Eingabe für das nächste Bild
         while (!button_pressed());
         while (button_pressed());
     }
