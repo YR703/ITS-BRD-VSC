@@ -64,15 +64,6 @@ int bmp_start(BITMAPFILEHEADER *fh, BITMAPINFOHEADER *ih, RGBQUAD *pal)
     // Kurze Pause oder User muss Button drücken (in main), um Text zu lesen
     // Hier laufen wir weiter.
  
-    // --- OVERRIDE LOGIK ---
-    #if FORCE_RLE_DECODE
-    if (g_compression == 0) {
-        g_compression = BI_RLE8;
-        // Optional: Debug Update
-        Coordinate pos2 = {0, 20};
-        GUI_disStr(pos2, "FORCE RLE ACTIVE", &Font16, WHITE, RED);
-    }
-    #endif
  
     // --- PALETTE LESEN (MIT NEXTCHAR) ---
     // Wir nutzen hier KEIN COMread, um absolute Kontrolle über den Stream zu haben.
