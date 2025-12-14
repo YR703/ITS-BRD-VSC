@@ -43,7 +43,6 @@ build:
   dbgconf:
     - file: ../../../../.cmsis/Aufgabe4+ITSboard.dbgconf
       version: 0.0.0
-      status: missing file
   processor:
     endian: little
     fpu: sp
@@ -329,6 +328,10 @@ build:
     - group: Program/User/Src
       files:
         - file: ../../../../Src/main.c
+          category: sourceC
+        - file: ../../../../Src/crc.c
+          category: sourceC
+        - file: ../../../../Src/onewire.c
           category: sourceC
   constructed-files:
     - file: ../../../../RTE/_Debug_ITSboard/RTE_Components.h

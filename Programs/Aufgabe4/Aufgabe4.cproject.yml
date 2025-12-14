@@ -178,7 +178,8 @@ project:
     - group: Program/User/Src
       files:
         - file: Src/main.c
-
+        - file: Src/crc.c
+        - file: Src/onewire.c
 
   components:
     - component: ARM::CMSIS:CORE

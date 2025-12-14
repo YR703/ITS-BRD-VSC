@@ -10,15 +10,11 @@ build-idx:
     - cbuild: out/Aufgabe4/ITSboard/Debug/Aufgabe4.Debug+ITSboard.cbuild.yml
       project: Aufgabe4
       configuration: .Debug+ITSboard
-      errors: true
       messages:
-        errors:
-          - file 'D:/GSWS/ITS-BRD-VSC/Programs/Aufgabe4/.cmsis/Aufgabe4+ITSboard.dbgconf' not found; use --update-rte
         info:
-          - Aufgabe4.cbuild-pack.yml - file generated successfully
-          - "RTE Model reports:\nConstructed file D:/GSWS/ITS-BRD-VSC/Programs/Aufgabe4/RTE/_Debug_ITSboard/RTE_Components.h was recreated"
-          - Aufgabe4+ITSboard.cbuild-run.yml - file generated successfully
-          - Aufgabe4.Debug+ITSboard.cbuild.yml - file generated successfully
+          - Aufgabe4.cbuild-pack.yml - file is already up-to-date
+          - Aufgabe4+ITSboard.cbuild-run.yml - file is already up-to-date
+          - Aufgabe4.Debug+ITSboard.cbuild.yml - file is already up-to-date
       packs-unused:
         - pack: ARM::CMSIS-DSP@1.16.2
         - pack: ARM::CMSIS-NN@6.0.0
