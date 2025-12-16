@@ -8,30 +8,30 @@ void scale_line_box_fit(uint16_t *outBuf, uint8_t **inputRows, int rowCount,
                         int srcW, float scale, int offsetX, int displayImageWidth,
                         RGBQUAD *pal)
 {
-    // Loop über alle 480 Pixel der LCD-Zeile
+    //Loop über alle 480 Pixel der LCD-Zeile
     for (int destX = 0; destX < 480; destX++)
     {
-        // 1. Prüfen: Sind wir im Bildbereich?
+        //Prüfen, ob der Pixel im sichtbaren Bereich liegt. Alles außerhalb (links/rechts) = Letterboxing → Schwarz
         if (destX >= offsetX && destX < (offsetX + displayImageWidth))
         {
-            // 2. Inverse Mapping: Welche X-Position im Quellbild?
+            //Inverse Mapping: destX → srcX (Position im Originalbild)
             // (destX - offsetX) ist die Koordinate relativ zum Bildstart links
             float srcX_float = (float)(destX - offsetX) / scale;
            
             int srcX_start = (int)floorf(srcX_float);
            
-            // Box-Breite
+            //Box-Breite
             int boxWidth = (int)ceilf(1.0f / scale);
             if (boxWidth < 1) boxWidth = 1;
  
             int srcX_end = srcX_start + boxWidth;
  
-            // Randbegrenzung
+            //Gültige Grenzen sicherstellen
             if (srcX_end > srcW) srcX_end = srcW;
             if (srcX_start >= srcW) srcX_start = srcW - 1;
             if (srcX_start < 0) srcX_start = 0;
  
-            // 3. Box-Averaging (Farben summieren)
+            // Box-Averaging, Wir mitteln RGB über alle Pixel im Box-Bereich
             uint32_t rSum = 0;
             uint32_t gSum = 0;
             uint32_t bSum = 0;
@@ -55,7 +55,7 @@ void scale_line_box_fit(uint16_t *outBuf, uint8_t **inputRows, int rowCount,
                 }
             }
  
-            // 4. Durchschnitt bilden und konvertieren
+            //Mittelwert berechnen → Anti-Aliasing
             if (pixelCount > 0)
             {
                 RGBQUAD avg;
@@ -64,7 +64,7 @@ void scale_line_box_fit(uint16_t *outBuf, uint8_t **inputRows, int rowCount,
                 avg.rgbBlue  = (uint8_t)(bSum / pixelCount);
                 avg.rgbReserved = 0;
  
-                outBuf[destX] = rgb_to_16(avg);
+                outBuf[destX] = rgb_to_16(avg); //16-Bit Format fürs Display
             }
             else
             {
@@ -73,7 +73,7 @@ void scale_line_box_fit(uint16_t *outBuf, uint8_t **inputRows, int rowCount,
         }
         else
         {
-            // Außerhalb des Bildes -> Schwarz (Letterboxing Balken)
+            //Außerhalb des Bildes -> Schwarz (Letterboxing Balken)
             outBuf[destX] = 0;
         }
     }

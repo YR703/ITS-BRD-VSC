@@ -1,10 +1,10 @@
 # Target labels
  Aufgabe3.Debug+ITSboard
 # Source files and their labels
-D:/GSWS/ITS-BRD-VSC/Programs/Aufgabe3/tmp/CMakeFiles/Aufgabe3.Debug+ITSboard-configure
-D:/GSWS/ITS-BRD-VSC/Programs/Aufgabe3/tmp/CMakeFiles/Aufgabe3.Debug+ITSboard-configure.rule
-D:/GSWS/ITS-BRD-VSC/Programs/Aufgabe3/tmp/Aufgabe3.Debug+ITSboard/src/Aufgabe3.Debug+ITSboard-stamp/Aufgabe3.Debug+ITSboard-configure.rule
-D:/GSWS/ITS-BRD-VSC/Programs/Aufgabe3/tmp/Aufgabe3.Debug+ITSboard/src/Aufgabe3.Debug+ITSboard-stamp/Aufgabe3.Debug+ITSboard-patch.rule
-D:/GSWS/ITS-BRD-VSC/Programs/Aufgabe3/tmp/Aufgabe3.Debug+ITSboard/src/Aufgabe3.Debug+ITSboard-stamp/Aufgabe3.Debug+ITSboard-update.rule
-D:/GSWS/ITS-BRD-VSC/Programs/Aufgabe3/tmp/Aufgabe3.Debug+ITSboard/src/Aufgabe3.Debug+ITSboard-stamp/Aufgabe3.Debug+ITSboard-download.rule
-D:/GSWS/ITS-BRD-VSC/Programs/Aufgabe3/tmp/Aufgabe3.Debug+ITSboard/src/Aufgabe3.Debug+ITSboard-stamp/Aufgabe3.Debug+ITSboard-mkdir.rule
+C:/Users/infwtx851/GSWS/ITS-BRD-VSC/Programs/Aufgabe3/tmp/CMakeFiles/Aufgabe3.Debug+ITSboard-configure
+C:/Users/infwtx851/GSWS/ITS-BRD-VSC/Programs/Aufgabe3/tmp/CMakeFiles/Aufgabe3.Debug+ITSboard-configure.rule
+C:/Users/infwtx851/GSWS/ITS-BRD-VSC/Programs/Aufgabe3/tmp/Aufgabe3.Debug+ITSboard/src/Aufgabe3.Debug+ITSboard-stamp/Aufgabe3.Debug+ITSboard-configure.rule
+C:/Users/infwtx851/GSWS/ITS-BRD-VSC/Programs/Aufgabe3/tmp/Aufgabe3.Debug+ITSboard/src/Aufgabe3.Debug+ITSboard-stamp/Aufgabe3.Debug+ITSboard-patch.rule
+C:/Users/infwtx851/GSWS/ITS-BRD-VSC/Programs/Aufgabe3/tmp/Aufgabe3.Debug+ITSboard/src/Aufgabe3.Debug+ITSboard-stamp/Aufgabe3.Debug+ITSboard-update.rule
+C:/Users/infwtx851/GSWS/ITS-BRD-VSC/Programs/Aufgabe3/tmp/Aufgabe3.Debug+ITSboard/src/Aufgabe3.Debug+ITSboard-stamp/Aufgabe3.Debug+ITSboard-download.rule
+C:/Users/infwtx851/GSWS/ITS-BRD-VSC/Programs/Aufgabe3/tmp/Aufgabe3.Debug+ITSboard/src/Aufgabe3.Debug+ITSboard-stamp/Aufgabe3.Debug+ITSboard-mkdir.rule

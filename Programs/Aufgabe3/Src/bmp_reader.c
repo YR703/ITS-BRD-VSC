@@ -6,22 +6,20 @@
 #include "fontsFLASH.h"
 #include <stdio.h>
 
-// -----------------------------------------------------------------------
-// DEBUG & OVERRIDE SETTINGS
-// -----------------------------------------------------------------------
+/**
+ * Wenn =1, wird die RLE-Dekodierung erzwungen,
+ * auch wenn der BMP-Header "BI_RGB" meldet.
+ * → In diesem Projekt NICHT benutzt.
+ */
 #define FORCE_RLE_DECODE 0
 
-// -----------------------------------------------------------------------
-// STATIC STATE
-// -----------------------------------------------------------------------
+//Statische Decoder-Zustände für ein geöffnetes BMP
 static int g_width = 0;
 static int g_compression = 0;
 static int g_bitCount = 0;
 static bool g_rle_eof = false;
 
-// -----------------------------------------------------------------------
-// RESET
-// -----------------------------------------------------------------------
+//Reset aller globalen Zustände vor Einlesen eines neuen Bildes
 void bmp_reset(void)
 {
     g_width = 0;
@@ -30,15 +28,15 @@ void bmp_reset(void)
     g_rle_eof = false;
 }
 
-// -----------------------------------------------------------------------
-// START & HEADER ANALYSE
-// -----------------------------------------------------------------------
+/* bmp_start()
+ *   Liest Header + Palette + springt zum Pixeloffset
+ */
 int bmp_start(BITMAPFILEHEADER *fh, BITMAPINFOHEADER *ih, RGBQUAD *pal)
 {
     bmp_reset();
     char debugBuf[64];
 
-    // 1. Header lesen (nutzt COMread intern)
+    //1) BMP-Header einlesen (nutzt intern COMread → liest 512-Byte-Chunks)
     if (readHeaders() != EOK) {
         lcdErrorMsg("Header Read Error");
         return NOK;
@@ -51,27 +49,27 @@ int bmp_start(BITMAPFILEHEADER *fh, BITMAPINFOHEADER *ih, RGBQUAD *pal)
     g_compression = ih->biCompression;
     g_bitCount    = ih->biBitCount;
 
-    // -------------------------------------------------------------
+    
     // FEHLER 1: Nur 8 Bit BMP unterstützt
-    // -------------------------------------------------------------
+   
     if (g_bitCount != 8)
     {
         lcdErrorMsg("Fehler: Nur 8-Bit BMP!");
         return NOK;
     }
 
-    // -------------------------------------------------------------
+    
     // FEHLER 2: Nur RLE8 (BI_RLE8) erlaubt
-    // -------------------------------------------------------------
+    
     if (g_compression != BI_RLE8)
     {
         lcdErrorMsg("Fehler: Nicht RLE8 komprimiert!");
         return NOK;
     }
 
-    // -------------------------------------------------------------
-    // DEBUG-AUSGABE AUF LCD
-    // -------------------------------------------------------------
+    
+    //Debug-Ausgabe für Entwicklung --> Wird für jedes Bild einmal oben links angezeigt
+    
     GUI_clear(BLACK);
     snprintf(debugBuf, sizeof(debugBuf),
              "W:%d H:%d C:%d B:%d",
@@ -81,9 +79,9 @@ int bmp_start(BITMAPFILEHEADER *fh, BITMAPINFOHEADER *ih, RGBQUAD *pal)
     Coordinate pos = {0, 0};
     GUI_disStr(pos, debugBuf, &Font16, WHITE, RED);
 
-    // -------------------------------------------------------------
-    // PALETTE LESEN
-    // -------------------------------------------------------------
+    
+    //Farbpalette lesen (256 Einträge zu je 4 Bytes: B,G,R,Res)
+    
     int colors = ih->biClrUsed;
     if (colors == 0) colors = 256;
 
@@ -106,9 +104,9 @@ int bmp_start(BITMAPFILEHEADER *fh, BITMAPINFOHEADER *ih, RGBQUAD *pal)
         pal[i].rgbReserved = (uint8_t)res;
     }
 
-    // -------------------------------------------------------------
-    // GAP SKIPPING — zum Datenoffset springen
-    // -------------------------------------------------------------
+    
+    //Zum Datenoffset springen (bfOffBits) --> Alles davor sind Header + Palette + evtl. zusätzliche Metadaten
+    
     int currentBytesRead = 14 + 40 + (colors * 4);
     int targetOffset     = fh->bfOffBits;
     int gap              = targetOffset - currentBytesRead;
@@ -118,7 +116,7 @@ int bmp_start(BITMAPFILEHEADER *fh, BITMAPINFOHEADER *ih, RGBQUAD *pal)
         lcdErrorMsg("Fehler: Negatives Gap");
         return NOK;
     }
-
+        //Bytes überspringen
     for (int i = 0; i < gap; i++)
     {
         if (nextChar() == EOF)
@@ -131,13 +129,11 @@ int bmp_start(BITMAPFILEHEADER *fh, BITMAPINFOHEADER *ih, RGBQUAD *pal)
     return EOK;
 }
 
-// -----------------------------------------------------------------------
-// RLE8 DECODER (KORRIGIERT)
-// -----------------------------------------------------------------------
+//read_row_rle()  Dekodiert EINE Ausgabezeile aus dem RLE8-Datenstrom
 static int read_row_rle(uint8_t *row, int width)
 {
     if (g_rle_eof)
-        return 0;
+        return 0; // Bitmap ist komplett fertig
 
     int x = 0;
 
@@ -149,7 +145,7 @@ static int read_row_rle(uint8_t *row, int width)
         if (b1 == EOF || b2 == EOF)
             return -1;
 
-        // ENCODED MODE
+        // ENCODED MODE (b1 > 0)  / b1 = Anzahl wiederholungen , b2 = Farbindex
         if (b1 > 0)
         {
             int count = b1;
@@ -164,23 +160,23 @@ static int read_row_rle(uint8_t *row, int width)
         }
         else
         {
-            // ESCAPE MODE
+            // ESCAPE MODE (b1 == 0)
             if (b2 == 0)
-                return 0; // End of line
+                return 0; // 0,0 → End Of Line
 
-            if (b2 == 1)
+            if (b2 == 1) //0,1 → End Of Bitmap
             {
                 g_rle_eof = true;
                 return 0;
             }
 
-            if (b2 == 2)
+            if (b2 == 2) //0,2,dx,dy → Cursor verschieben
             {
                 int dx = nextChar();
                 int dy = nextChar();
 
                 x += dx;
-                // dy wird ignoriert (BMP bottom-up row-wise streaming)
+                // dy wird ignoriert (Bild wird Bottom-Up gelesen)
             }
             else
             {
@@ -197,7 +193,7 @@ static int read_row_rle(uint8_t *row, int width)
                     x++;
                 }
 
-                // Padding
+                // Padding (auf Wortgrenze)
                 if (count % 2 != 0)
                     nextChar();
             }
@@ -230,9 +226,9 @@ static int read_row_raw(uint8_t *row, int width)
     return 0;
 }
 
-// -----------------------------------------------------------------------
-// MAIN READ FUNCTION
-// -----------------------------------------------------------------------
+
+//Hauptfunktion zum Lesen einer Zeile  → entscheidet zwischen RAW und RLE8
+
 int bmp_read_row(uint8_t *row, int width)
 {
     if (g_compression == BI_RLE8)
