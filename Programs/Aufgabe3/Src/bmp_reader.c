@@ -201,9 +201,9 @@ static int read_row_rle(uint8_t *row, int width)
     }
 }
 
-// -----------------------------------------------------------------------
+
 // RAW READER (falls nicht RLE) — wird nicht benutzt, aber bleibt drin
-// -----------------------------------------------------------------------
+
 static int read_row_raw(uint8_t *row, int width)
 {
     for (int i = 0; i < width; i++)
